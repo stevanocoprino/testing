@@ -1,0 +1,129 @@
+/**
+ * Mixins
+**/
+
+// =============================================================================
+// String Replace
+// =============================================================================
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff ttf svg) {
+    $src: null;
+    $extmods: ( eot: "?", svg: "#" + str-replace($name, " ", "_"));
+    $formats: ( otf: "opentype", ttf: "truetype");
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    }
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+}
+
+// =============================================================================
+// Others
+// =============================================================================
+@mixin translateX($val: 100%) {
+    -webkit-transform: translateX($val);
+    -ms-transform: translateX($val);
+    -o-transform: translateX($val);
+    transform: translateX($val);
+}
+
+@mixin translateY($val: 50%) {
+    -webkit-transform: translateY($val);
+    -ms-transform: translateY($val);
+    -o-transform: translateY($val);
+    transform: translateY($val);
+}
+
+//mixins border radius
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+//box shadow
+@mixin box-shadow($top, $left, $blur, $size, $color) {
+   -webkit-box-shadow: $top $left $blur $size $color;
+   -moz-box-shadow: $top $left $blur $size $color;
+   box-shadow: $top $left $blur $size $color;
+}
+
+//text rendering
+@mixin text-rendering {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: auto;
+}
+
+//placeholder
+@mixin placeholder($color) {
+    ::-webkit-input-placeholder {
+        color: $color;
+    }
+    /* Firefox 18- */
+    :-moz-placeholder {
+        color: $color;
+    }
+    /* Firefox 19+ */
+    ::-moz-placeholder {
+        color: $color;
+    }
+    :-ms-input-placeholder {
+        color: $color;
+    }
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+//scale
+@mixin scale($value) {
+    -webkit-transform: scale($value);
+    -moz-transform: scale($value);
+    -ms-transform: scale($value);
+    -o-transform: scale($value);
+    transform: scale($value);
+}
+
+//rotate
+@mixin rotate($value) {
+    -webkit-transform: rotate($value);
+    -ms-transform: rotate($value);
+    transform: rotate($value);
+}
+
+//alignflex
+@mixin alignflex() {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    // -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    // justify-content: center;
+}
+
+//clearfix
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
