@@ -1,0 +1,42 @@
+.tag {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 36px;
+    color: rgba(255, 255, 255, 0.7);
+
+    b {
+        width: 9px;
+        height: 9px;
+        border-radius: 100%;
+        background: red;
+        display: inline-block;
+        margin-right: 4px;
+    }
+
+    &-list {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            display: inline-block;
+            margin-right: 16px;
+            margin-bottom: 16px;
+            
+            a {
+                display: inline-block;
+                border: 1px solid #000000;
+                border-radius: 10px;
+                height: 38px;
+                line-height: 38px;
+                padding: 0 40px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 36px;
+                color: #000000;
+            }
+        }
+    }
+}

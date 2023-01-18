@@ -1,0 +1,30 @@
+.slick {
+    &-dots {
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        bottom: 16px;
+        text-align: center;
+        width: 100%;
+
+        li {
+            list-style: none;
+            display: inline-block;
+            color: transparent;
+            background: white;
+            opacity: 0.4;
+            width: 12px;
+            height: 12px;
+            margin: 0 8px;
+            border-radius: 100%;
+
+            button {
+                display: none;
+            }
+        }
+    }
+
+    &-active {
+        opacity: 1 !important;
+    }
+}

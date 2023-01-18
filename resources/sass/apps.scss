@@ -2,13 +2,33 @@
 
 // Vendors
 @import "~bootstrap/scss/bootstrap";
+@import '~slick-carousel/slick/slick.css';
+
+@import "./vendors/slick";
 
 // Components
+@import "./components/banner";
+@import "./components/button";
+@import "./components/card";
+@import "./components/form";
+@import "./components/link";
+@import "./components/list";
+@import "./components/overlay";
+@import "./components/slider";
+@import "./components/tab";
+@import "./components/tag";
 
 // Helpers
+@import "./helpers/colors";
 @import "./helpers/mixins";
+@import "./helpers/text";
+@import "./helpers/title";
 
 // Layouts
+@import "./layouts/footer";
+@import "./layouts/header";
+@import "./layouts/section";
 
 // Settings
 @import "./settings/fonts";
+@import "./settings/global";

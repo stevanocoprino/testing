@@ -1,0 +1,32 @@
+.button {
+    &-primary {
+        padding: 0 24px;
+        border-radius: 60px;
+        height: 52px;
+        line-height: 52px;
+        display: inline-block;
+        background-color: black;
+        color: white;
+        transition: $transition;
+
+        &-br-10 {
+            border-radius: 10px;
+        }
+    }
+    &-transparent {
+        padding: 0 24px;
+        border-radius: 60px;
+        height: 52px;
+        line-height: 52px;
+        display: inline-block;
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        transition: $transition;
+
+        &:hover {
+            color: black;
+            background-color: white;
+        }
+    }
+}

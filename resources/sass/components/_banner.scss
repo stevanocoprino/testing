@@ -1,0 +1,16 @@
+.banner {
+
+    &__main {
+        height: 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &-bottom {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+        }
+    }
+}

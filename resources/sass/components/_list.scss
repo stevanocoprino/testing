@@ -1,0 +1,12 @@
+.list {
+    &-with-border {
+        padding: 0;
+        margin: 0;
+
+        li {
+            border-bottom: 1px solid #B6B6B6;
+            padding: 14px 0;
+            list-style: none;
+        }
+    }
+}

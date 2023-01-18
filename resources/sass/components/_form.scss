@@ -1,0 +1,11 @@
+.form {
+    &-control {
+        height: 52px;
+        line-height: 52px;
+        color: #000;
+
+        &:focus {
+            color: #000;
+        }
+    }
+}

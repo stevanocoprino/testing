@@ -7,6 +7,8 @@ $body-color: #fff;
 $font-size: 16px;
 $line-height: 1.6;
 
+// transition
+$transition: all 0.25s ease-in-out;;
 :root {
     --d: 700ms;
     --e: cubic-bezier(0.19, 1, 0.22, 1);
