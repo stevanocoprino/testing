@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\NewsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,7 @@ use App\Http\Controllers\HomepageController;
 
 // Home
 Route::get('/', [HomepageController::class, 'index']);
+
+// News
+Route::get('/category', [NewsController::class, 'archive']);
+Route::get('/single', [NewsController::class, 'index']);
