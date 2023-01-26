@@ -9,7 +9,7 @@
         @foreach($hotNews as $hn)
         
         @if($i==1)
-        <div class="banner banner__main overlay-full" style="background-image: url('{{ asset('assets/img/'.$hn["pic"]) }}');">
+        <div class="banner banner__main overlay-full" style="background-image: url('{{ asset('storage/images/'.$hn["pic"]) }}');">
             <div class="container position-relative h-100">
                 <div class="banner__main-bottom">
                     <div class="row mb-5">
@@ -29,7 +29,7 @@
                                 <div class="slider-news-item">
                                     <a href="{{ URL::to('/'.$hn->slug) }}">
                                         <div class="row g-0 card__small">
-                                            <div class="col-4 card__small-thumbnail" style="background-image: url('{{ asset('assets/img/'.$hn["pic"]) }}');"></div>
+                                            <div class="col-4 card__small-thumbnail" style="background-image: url('{{ asset('storage/images/'.$hn["pic"]) }}');"></div>
                                             <div class="col-8 card__small-content">
                                                 <div class="position-relative"><label class="text-reg-12 c-gray me-2">{{ Helper::getDateToString($hn->publish_on??"now") }}</label><span class="text-reg-12 c-black">{{ $hn->newsTypes->news_type??"" }}</span></div>
                                                 <h5 class="text-sb-16 c-black">{{ $hn->title }}</h5>
@@ -63,7 +63,7 @@
                         @foreach($terbaruNews as $tn)
                         @if($i==1)
                         <div class="col-12">
-                            <a href=""{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}"" class="d-block card__thumbnail card__thumbnail-large overlay-full position-relative mb-4" style="background-image: url('{{ asset('assets/img/'.$tn["pic"]) }}');">
+                            <a href=""{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}"" class="d-block card__thumbnail card__thumbnail-large overlay-full position-relative mb-4" style="background-image: url('{{ asset('storage/images/'.$tn["pic"]) }}');">
                                 <div class="h-100">
                                     <span class="card__thumbnail-wrapper">
                                         <h3 class="text-sb-30 c-white">{{$tn->title??""}}</h3>
@@ -74,7 +74,7 @@
                         </div>
                         @else
                         <div class="col-sm-12 col-lg-6">
-                            <a href=""{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}"" class="d-block card__thumbnail card__thumbnail-small overlay-full position-relative mb-4" style="background-image: url('{{ asset('assets/img/'.$tn["pic"]) }}');">
+                            <a href=""{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}"" class="d-block card__thumbnail card__thumbnail-small overlay-full position-relative mb-4" style="background-image: url('{{ asset('storage/images/'.$tn["pic"]) }}');">
                                 <div class="h-100">
                                     <span class="card__thumbnail-wrapper">
                                         <h3 class="text-sb-20 c-white">{{$tn->title??""}}</h3>
@@ -107,7 +107,7 @@
                                         <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="d-block card__article card__article-with-border">
                                             <div class="row">
                                                 <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["pic"]) }}');"></div>
+                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                                                 </div>
                                                 <div class="col-8">
                                                     <div class="card__article-content">
@@ -129,7 +129,7 @@
                                         <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="d-block card__article card__article-with-border">
                                             <div class="row">
                                                 <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["pic"]) }}');"></div>
+                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                                                 </div>
                                                 <div class="col-8">
                                                     <div class="card__article-content">
@@ -151,7 +151,7 @@
                                         <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="d-block card__article card__article-with-border">
                                             <div class="row">
                                                 <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["pic"]) }}');"></div>
+                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                                                 </div>
                                                 <div class="col-8">
                                                     <div class="card__article-content">
@@ -186,7 +186,7 @@
                 @foreach($sepakBola as $tn)
                 <div class="col-12 col-md-4">
                     <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="card__article">
-                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["pic"]) }}');"></div>
+                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                         <div class="card__article-content">
                             <h3 class="text-sb-20 c-black">{{ $tn->title??"" }}</h3>
                             <p class="mb-3 c-black">{!! strip_tags($tn->short_desc) !!}</p>
@@ -218,7 +218,7 @@
                 @foreach($bolaBasket as $tn)
                 <div class="col-12 col-md-4">
                     <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="card__article">
-                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["pic"]) }}');"></div>
+                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                         <div class="card__article-content">
                             <h3 class="text-sb-20 c-black">{{ $tn->title??"" }}</h3>
                             <p class="mb-3 c-black">{!! strip_tags($tn->short_desc) !!}</p>
@@ -280,7 +280,7 @@
                             <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["pic"]) }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
@@ -296,7 +296,7 @@
                             <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["pic"]) }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
@@ -312,7 +312,7 @@
                             <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["pic"]) }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
@@ -328,7 +328,7 @@
                             <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["pic"]) }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
@@ -344,7 +344,7 @@
                             <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["pic"]) }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
@@ -360,7 +360,7 @@
                             <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["pic"]) }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
@@ -401,7 +401,7 @@
     <section>
         <div class="slider-homepage">
             @foreach($terbaruNews4 as $tn)
-            <div class="banner banner__main overlay-full" style="background-image: url('{{ asset('assets/img/'.$tn["pic"]) }}');">
+            <div class="banner banner__main overlay-full" style="background-image: url('{{ asset('storage/images/'.$tn["pic"]) }}');">
                 <div class="container position-relative h-100">
                     <div class="banner__main-bottom">
                         <div class="row mb-5">
@@ -432,7 +432,7 @@
                 @foreach($bolaVoli as $tn)
                 <div class="col-12 col-md-4">
                     <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="card__article">
-                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["thumb1"]) }}');"></div>
+                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["thumb1"]) }}');"></div>
                         <div class="card__article-content">
                             <h3 class="text-sb-20 c-black">{{ $tn->title??"" }}</h3>
                             <p class="mb-3 c-black">{!! strip_tags($tn->short_desc) !!}</p>
@@ -464,7 +464,7 @@
                 @foreach($international as $tn)
                 <div class="col-12 col-md-4">
                     <a href="{{ URL::to('/'.$tn->newsTypes->slug.'/'.$tn->slug) }}" class="card__article">
-                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$tn["pic"]) }}');"></div>
+                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                         <div class="card__article-content">
                             <h3 class="text-sb-20 c-black">{{ $tn->title??"" }}</h3>
                             <p class="mb-3 c-black">{!! strip_tags($tn->short_desc) !!}</p>
