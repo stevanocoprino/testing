@@ -27,31 +27,26 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <ul class="navbar">
-                        <li>
-                            <a href="#">Premier League</a>
-                            <ul class="navbar-sub">
-                                <li><a href="#">Arsenal</a></li>
-                                <li><a href="#">Aston Villa</a></li>
-                                <li><a href="#">Chelsea</a></li>
-                                <li><a href="#">Manchester United</a></li>
-                                <li><a href="#">Manchester City</a></li>
-                                <li><a href="#">Liverpool</a></li>
-                                <li><a href="#">Everton</a></li>
-                                <li><a href="#">Crystal Palace</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">LaLiga BBVA</a></li>
-                        <li><a href="#">Serie A</a></li>
-                        {{-- @php
+                    <ul class="navbars">
+                        @php
                             $i=1;
                         @endphp
-                        @foreach(Helper::header_menu() as $nt)
-                        <li><a href="{{ URL::to('/'.$nt->slug) }}">{{ $nt->news_type??"" }}</a></li>
-                            @php
-                                $i++;
-                            @endphp
-                        @endforeach --}}
+                            @foreach(Helper::header_menu() as $nt)
+                                @if($i>=4)
+                                <li>
+                                    <a href="">Multi Sport</a>
+                                    <ul class="navbars-sub">
+                                @endif
+                                <li>
+                                    <a href="{{ URL::to('/'.$nt->slug) }}">{{ $nt->news_type??"" }}</a>
+                                </li>
+                                @php
+                                    $i++;
+                                @endphp
+                            @endforeach
+                            
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

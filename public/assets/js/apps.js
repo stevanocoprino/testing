@@ -3344,6 +3344,18 @@ $(function () {
     lastScrollTop = st;
   }
 });
+$(".navbars > li").hover(function (e) {
+  if ($(window).width() > 943) {
+    $(this).children(".navbars-sub").stop(true, false).fadeToggle(150);
+    //   $(this).children(".has-menu").stop(true, false).toggleClass("open");
+    e.preventDefault();
+  }
+});
+$(".navbars > li").click(function () {
+  if ($(window).width() <= 943) {
+    $(this).children(".mega-menu").toggle(150);
+  }
+});
 
 /***/ }),
 
