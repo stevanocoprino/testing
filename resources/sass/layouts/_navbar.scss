@@ -1,3 +1,16 @@
-.navbar {
-    
+.navbars {
+
+    &-sub {
+        display: none;
+        position: absolute;
+        background: white;
+        left: 0;
+        right: 0;
+
+        li {
+            a {
+                color: #000 !important;
+            }
+        }
+    }
 }

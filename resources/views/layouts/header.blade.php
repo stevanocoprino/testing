@@ -27,6 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
+<<<<<<< HEAD
                     <ul class="navbar">
                         {{-- <li>
                             <a href="#">Premier League</a>
@@ -59,6 +60,26 @@
                                 $i++;
                             @endphp
                         @endforeach
+=======
+                    <ul class="navbars">
+                        @php
+                            $i=1;
+                        @endphp
+                            @foreach(Helper::header_menu() as $nt)
+                                @if($i>=4)
+                                <li>
+                                    <a href="">Multi Sport</a>
+                                    <ul class="navbars-sub">
+                                @endif
+                                <li>
+                                    <a href="{{ URL::to('/'.$nt->slug) }}">{{ $nt->news_type??"" }}</a>
+                                </li>
+                                @php
+                                    $i++;
+                                @endphp
+                            @endforeach
+                            
+>>>>>>> 7bda9a18e6ae50b0735151c0ed43f236cc90b62e
                             </ul>
                         </li>
                     </ul>
