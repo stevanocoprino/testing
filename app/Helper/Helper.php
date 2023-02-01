@@ -9,7 +9,7 @@ use App\Models\NewsTypes;
 
 class Helper
 {
-    function getDateToString($dateTime)
+    public static function getDateToString($dateTime)
     {
         
         $datetime1=new DateTime("now");
@@ -52,7 +52,7 @@ class Helper
         return $timemsg;
     }
 
-    function header_menu(){
+    public static function header_menu(){
         $newsTypes   = NewsTypes::where('aktif','1')
         ->orderBy('urutan','ASC')
         // ->limit("4")
