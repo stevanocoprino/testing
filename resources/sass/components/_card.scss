@@ -38,6 +38,9 @@
     }
 
     &__article {
+        margin-bottom: 30px;
+        display: inline-block;
+
         &-thumbnail {
             height: 240px;
             width: 100%;
@@ -58,6 +61,7 @@
         &-with-border {
             border-bottom: 1px solid #B6B6B6;
             padding-top: 1.5rem;
+            margin-bottom: 4px;
         }
     }
 }

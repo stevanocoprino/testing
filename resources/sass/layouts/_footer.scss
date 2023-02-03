@@ -2,6 +2,11 @@
     background-color: #FAFAFA;
     
     &__action {
+
+        @media screen and ( max-width: 767px ) {
+            margin-top: 24px;
+        }
+
         h4 {
             font-style: normal;
             font-weight: 600;
@@ -28,6 +33,10 @@
         display: inline-block;
         margin-right: 40px;
         vertical-align: top;
+
+        @media screen and ( max-width: 767px ) {
+            margin-right: 24px;
+        }
 
         h5 {
             color: #000000;
@@ -98,6 +107,10 @@
             font-size: 14px;
             line-height: 36px;
             color: #000000;
+
+            @media screen and ( max-width: 767px ) {
+                text-align: left;
+            }
         }
     }
 }

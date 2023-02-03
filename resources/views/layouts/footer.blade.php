@@ -2,28 +2,6 @@
     <div class="footer__top">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-lg-4">
-                    <div class="footer__action">
-                        <span>
-                            <img src="{{ asset('assets/images/sportify-black.svg') }}" alt="">
-                            <h4>Subscribe to our newsletter</h4>
-                            <form class="row g-3">
-                                <div class="col-auto">
-                                    <input type="text" class="form-control" id="emailAddress" placeholder="Your email address...">
-                                </div>
-                                <div class="col-auto">
-                                    <button type="submit" class="button-primary button-primary-br-10 mb-3">Submit</button>
-                                </div>
-                            </form>
-                            <ul>
-                                <li><a href="#"><img src="{{ asset('assets/images/003-instagram.svg') }}" alt=""></a></li>
-                                <li><a href="#"><img src="{{ asset('assets/images/006-facebook.svg') }}" alt=""></a></li>
-                                <li><a href="#"><img src="{{ asset('assets/images/005-twitter.svg') }}" alt=""></a></li>
-                                <li><a href="#"><img src="{{ asset('assets/images/004-youtube.svg') }}" alt=""></a></li>
-                            </ul>
-                        </span>
-                    </div>
-                </div>
                 <div class="col-sm-12 col-lg-8">
                     <div class="footer__item">
                         <h5>Sepak Bola</h5>
@@ -82,6 +60,28 @@
                             <li><a href="#">Kontak Kami</a></li>
                             <li><a href="#">Info Iklan</a></li>
                         </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-4">
+                    <div class="footer__action">
+                        <span>
+                            <img src="{{ asset('assets/images/sportify-black.svg') }}" alt="">
+                            <h4>Subscribe to our newsletter</h4>
+                            <form class="row g-3">
+                                <div class="col-auto">
+                                    <input type="text" class="form-control" id="emailAddress" placeholder="Your email address...">
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="button-primary button-primary-br-10 mb-3">Submit</button>
+                                </div>
+                            </form>
+                            <ul>
+                                <li><a href="#"><img src="{{ asset('assets/images/003-instagram.svg') }}" alt=""></a></li>
+                                <li><a href="#"><img src="{{ asset('assets/images/006-facebook.svg') }}" alt=""></a></li>
+                                <li><a href="#"><img src="{{ asset('assets/images/005-twitter.svg') }}" alt=""></a></li>
+                                <li><a href="#"><img src="{{ asset('assets/images/004-youtube.svg') }}" alt=""></a></li>
+                            </ul>
+                        </span>
                     </div>
                 </div>
             </div>
