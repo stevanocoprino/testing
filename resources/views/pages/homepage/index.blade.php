@@ -9,9 +9,9 @@
         @foreach($hotNews as $hn)
         
         @if($i==1)
-        <div class="banner banner__main overlay-full" style="background-image: url('{{ asset('storage/images/'.$hn["pic"]) }}');">
-            <div class="container position-relative h-100">
-                <div class="banner__main-bottom">
+        <div class="banner banner__main overlay-full" style="background-image: url('{{ asset('assets/img/'.$hn["pic"]) }}');">
+            <div class="banner__main-bottom">
+                <div class="container position-relative h-100">
                     <div class="row mb-5">
                         <div class="col-12 col-lg-7">
                             <span class="tag"><b></b> Hot Topic</span>
@@ -401,9 +401,9 @@
     <section>
         <div class="slider-homepage">
             @foreach($terbaruNews4 as $tn)
-            <div class="banner banner__main overlay-full" style="background-image: url('{{ asset('storage/images/'.$tn["pic"]) }}');">
-                <div class="container position-relative h-100">
-                    <div class="banner__main-bottom">
+            <div class="banner banner__main overlay-full" style="background-image: url('{{ asset('assets/img/'.$tn["pic"]) }}');">
+                <div class="banner__main-bottom">
+                    <div class="container position-relative h-100">
                         <div class="row mb-5">
                             <div class="col-12 col-lg-7">
                                 <h1 class="text-sb-30 c-white">{{ $tn->title??"" }}</h1>

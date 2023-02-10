@@ -1,4 +1,30 @@
 .navbars {
+    transition: $transition;
+
+    @media screen and ( max-width: 767px ) {
+        position: fixed;
+        top: 0;
+        left: -110%;
+        right: auto;
+        bottom: 0;
+        background: white;
+        color: black;
+        width: 100%;
+        padding-top: 50px !important;
+        text-align: left;
+
+        &.active {
+            left: 0;
+        }
+
+        li {
+            display: block !important;
+
+            a {
+                color: #000 !important;
+            }
+        }
+    }
 
     &-sub {
         display: none;
@@ -7,10 +33,20 @@
         left: 0;
         right: 0;
 
+        @media screen and ( max-width: 767px ) {
+            padding-left: 20px !important;
+        }
+
         li {
             a {
                 color: #000 !important;
             }
         }
     }
+}
+
+#closeNavbar {
+    position: absolute;
+    top: 5px;
+    right: 20px;
 }

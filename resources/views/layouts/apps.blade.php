@@ -6,11 +6,17 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Page | Sportify</title>
 
-        <meta name="viewport" content="" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/apps.css') }}">
+
+        {{-- <meta name="viewport" content="" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <meta name="googlebot-news" content="" />
-        <meta  name="googlebot" content="" />
+        <meta name="googlebot" content="" />
         <meta name="author" content="" />
         <meta name="robots" content="" />
         <meta name="language" content="" />
@@ -54,13 +60,7 @@
         <meta name="content_tag" content="" />
         <meta name="content_tags" content="" />
         <meta name="content_total_words" content="" />
-        <meta name="subscription" content="" />
-      
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-        <link rel="stylesheet" href="{{ asset('assets/css/apps.css') }}">
+        <meta name="subscription" content="" /> --}}
         
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-E28SRQ36PD"></script>

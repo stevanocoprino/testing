@@ -1,0 +1,15 @@
+.push {
+    order: 1;
+
+    @media screen and ( max-width: 767px ) {
+        order: 2;
+    }
+}
+
+.pull {
+    order: 2;
+
+    @media screen and ( max-width: 767px ) {
+        order: 1;   
+    }
+}

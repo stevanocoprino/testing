@@ -10976,7 +10976,6 @@ textarea.form-control-lg {
   left: 0;
   right: 0;
 }
-
 .button-primary {
   padding: 0 24px;
   border-radius: 60px;
@@ -11036,6 +11035,10 @@ textarea.form-control-lg {
 .card__thumbnail-small {
   height: 240px;
 }
+.card__article {
+  margin-bottom: 30px;
+  display: inline-block;
+}
 .card__article-thumbnail {
   height: 240px;
   width: 100%;
@@ -11053,6 +11056,7 @@ textarea.form-control-lg {
 .card__article-with-border {
   border-bottom: 1px solid #B6B6B6;
   padding-top: 1.5rem;
+  margin-bottom: 4px;
 }
 
 .form-control {
@@ -11100,6 +11104,11 @@ textarea.form-control-lg {
   background-color: white;
   border-radius: 16px;
   padding: 18px 40px;
+}
+@media screen and (max-width: 767px) {
+  .slider-news {
+    border-radius: 0;
+  }
 }
 
 #tabs-nav {
@@ -11234,6 +11243,11 @@ textarea.form-control-lg {
 .footer {
   background-color: #FAFAFA;
 }
+@media screen and (max-width: 767px) {
+  .footer__action {
+    margin-top: 24px;
+  }
+}
 .footer__action h4, .footer__action .h4 {
   font-style: normal;
   font-weight: 600;
@@ -11256,6 +11270,11 @@ textarea.form-control-lg {
   display: inline-block;
   margin-right: 40px;
   vertical-align: top;
+}
+@media screen and (max-width: 767px) {
+  .footer__item {
+    margin-right: 24px;
+  }
 }
 .footer__item h5, .footer__item .h5 {
   color: #000000;
@@ -11315,6 +11334,11 @@ textarea.form-control-lg {
   line-height: 36px;
   color: #000000;
 }
+@media screen and (max-width: 767px) {
+  .footer__bottom p {
+    text-align: left;
+  }
+}
 
 .header {
   position: fixed;
@@ -11341,6 +11365,11 @@ textarea.form-control-lg {
   line-height: 60px;
   text-align: center;
 }
+@media screen and (max-width: 767px) {
+  .header__bottom {
+    height: 0;
+  }
+}
 .header__bottom ul {
   padding: 0;
   margin: 0;
@@ -11358,13 +11387,33 @@ textarea.form-control-lg {
   font-size: 14px;
   line-height: 36px;
 }
+.header__search {
+  text-align: right;
+}
 .header__search input {
   height: 34px;
   line-height: 34px;
   border-radius: 29px;
   width: 60%;
+  display: inline-block;
+  transition: all 0.25s ease-in-out;
 }
-.header__search button {
+@media screen and (max-width: 767px) {
+  .header__search input {
+    opacity: 0;
+    visibility: hidden;
+    right: -50px;
+    top: 20px;
+    position: absolute;
+    width: 70%;
+  }
+  .header__search input.active {
+    opacity: 1;
+    visibility: visible;
+    right: 12px;
+  }
+}
+.header__search button, .header__search #searchToggle {
   border-radius: 100% !important;
   background: black;
   border-radius: 0;
@@ -11373,12 +11422,67 @@ textarea.form-control-lg {
   width: 34px;
   text-align: center;
   padding: 0;
+  line-height: 34px;
 }
-.header__search button img {
+.header__search button img, .header__search #searchToggle img {
   position: relative;
   top: -1px;
 }
+.header__search button {
+  display: inline-block;
+}
+@media screen and (max-width: 767px) {
+  .header__search button {
+    display: none;
+  }
+}
+.header__search #searchToggle {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .header__search #searchToggle {
+    display: block;
+    position: relative;
+    top: 20px;
+    float: right;
+  }
+}
 
+#menuToggle, #closeNavbar {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  #menuToggle, #closeNavbar {
+    display: block;
+  }
+}
+
+.navbars {
+  transition: all 0.25s ease-in-out;
+}
+@media screen and (max-width: 767px) {
+  .navbars {
+    position: fixed;
+    top: 0;
+    left: -110%;
+    right: auto;
+    bottom: 0;
+    background: white;
+    color: black;
+    width: 100%;
+    padding-top: 50px !important;
+    text-align: left;
+  }
+  .navbars.active {
+    left: 0;
+  }
+  .navbars li {
+    display: block !important;
+  }
+  .navbars li a {
+    color: #000 !important;
+  }
+}
 .navbars-sub {
   display: none;
   position: absolute;
@@ -11386,8 +11490,19 @@ textarea.form-control-lg {
   left: 0;
   right: 0;
 }
+@media screen and (max-width: 767px) {
+  .navbars-sub {
+    padding-left: 20px !important;
+  }
+}
 .navbars-sub li a {
   color: #000 !important;
+}
+
+#closeNavbar {
+  position: absolute;
+  top: 5px;
+  right: 20px;
 }
 
 .section {
@@ -11404,4 +11519,22 @@ a {
 }
 a:hover {
   text-decoration: none;
+}
+
+.push {
+  order: 1;
+}
+@media screen and (max-width: 767px) {
+  .push {
+    order: 2;
+  }
+}
+
+.pull {
+  order: 2;
+}
+@media screen and (max-width: 767px) {
+  .pull {
+    order: 1;
+  }
 }
