@@ -53,7 +53,8 @@ class Helper
     }
 
     public static function header_menu(){
-        $newsTypes   = NewsTypes::where('aktif','1')
+        $newsTypes   = NewsTypes::with(['newsSubTypes'])
+        ->where('aktif','1')
         ->orderBy('urutan','ASC')
         // ->limit("4")
         ->get();

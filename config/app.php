@@ -52,9 +52,10 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost/sportify'),
 
-    'asset_url' => env('ASSET_URL', null),
+    'asset_url' => env('ASSET_URL', 'http://localhost/sportify/public/'),
+    'image_url' => env('IMAGE_URL', 'http://localhost/sportify_admin/assets/img/'),
 
     /*
     |--------------------------------------------------------------------------

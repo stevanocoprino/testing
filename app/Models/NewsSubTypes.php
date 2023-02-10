@@ -5,20 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 // use Illuminate\Database\Eloquent\SoftDeletes;
 
-class NewsTypes extends Model
+class NewsSubTypes extends Model
 {
     // use SoftDeletes;
 
-    protected $table = 'news_types';
+    protected $table = 'news_sub_types';
 
     protected $fillable = [
-        'news_type', 
-        'icon', 
-        'seo_title', 
-        'seo_description', 
+        'sub_type', 
+        'id_news_types', 
         'slug',
-        'aktif',
-        'urutan'
+        'seo_title',
+        'seo_description',
+        'active',
+        'sort'
     ];
 
     /**
@@ -31,15 +31,13 @@ class NewsTypes extends Model
 
     public function news()
     {
-        return $this->hasMany(News::class,'news_type','news_type_id');
+        return $this->hasMany(News::class,'news_sub_type','id_news_sub_types');
     }
 
-    
-    public function newsSubTypes()
+    public function newsSubSubTypes()
     {
-        return $this->hasMany(NewsSubTypes::class,'id_news_types','news_type_id')->orderBy("sort","asc");
+        return $this->hasMany(NewsSubSubTypes::class,'id_news_sub_types','id_news_sub_types')->orderBy("sort","asc");
     }
-
     public function newsLimit()
     {
         return $this->hasMany(News::class,'news_type','news_type_id')

@@ -41,4 +41,9 @@ class News extends Model
     {
         return $this->hasOne(NewsTypes::class,'news_type_id','news_type');
     }
+
+    public function newsSubTypes()
+    {
+        return $this->hasOne(NewsSubTypes::class,'id_news_sub_types','news_sub_types');
+    }
 }

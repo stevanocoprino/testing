@@ -27,59 +27,45 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-<<<<<<< HEAD
-                    <ul class="navbar">
-                        {{-- <li>
-                            <a href="#">Premier League</a>
-                            <ul class="navbar-sub">
-                                <li><a href="#">Arsenal</a></li>
-                                <li><a href="#">Aston Villa</a></li>
-                                <li><a href="#">Chelsea</a></li>
-                                <li><a href="#">Manchester United</a></li>
-                                <li><a href="#">Manchester City</a></li>
-                                <li><a href="#">Liverpool</a></li>
-                                <li><a href="#">Everton</a></li>
-                                <li><a href="#">Crystal Palace</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">LaLiga BBVA</a></li>
-                        <li><a href="#">Serie A</a></li> --}}
-                        @php
-                            $i=1;
-                        @endphp
-                        @foreach(Helper::header_menu() as $nt)
-                        @if($i>=4)
-                        <li>
-                            <a href="">Multi Sport</a>
-                            <ul class="navbar-sub">
-                        @endif
-                        <li>
-                            <a href="{{ URL::to('/'.$nt->slug) }}">{{ $nt->news_type??"" }}</a>
-                        </li>
-                            @php
-                                $i++;
-                            @endphp
-                        @endforeach
-=======
                     <ul class="navbars">
                         @php
                             $i=1;
                         @endphp
                             @foreach(Helper::header_menu() as $nt)
-                                @if($i>=4)
+                                @if($i==4)
                                 <li>
                                     <a href="">Multi Sport</a>
                                     <ul class="navbars-sub">
                                 @endif
                                 <li>
-                                    <a href="{{ URL::to('/'.$nt->slug) }}">{{ $nt->news_type??"" }}</a>
+                                    <a href="{{ URL::to('/'.$nt->slug) }}">
+                                        {{-- <div style="width:30px !important;height:30px !important;border:thin solid #e4e4e4;;background-position:center;background-repeat:no-repeat;background-size:cover;background-image:url('{{ env('IMAGE_URL').$nt->icon }}');"></div> --}}
+                                        {{ $nt->news_type??"" }}</a>
+                                        @if(!empty($nt->newsSubTypes))
+                                            <ul class="navbars-sub">
+                                                @php
+                                                $newsSubTypesnya=json_decode(json_encode($nt->newsSubTypes),TRUE);
+                                                // dd($newsSubTypesnya);
+                                                $key_values = array_column($newsSubTypesnya, 'sort'); 
+                                                array_multisort($key_values, SORT_ASC, $newsSubTypesnya);
+                                                @endphp
+                                            @foreach($newsSubTypesnya as $nst)
+                                                <li>
+                                                    <a href="{{ URL::to('/'.$nt['slug'].'/'.$nst['slug']) }}">
+                                                       {{ $nst['sub_types']??"" }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                            </ul>
+                                           
+                                        @endif
+                                  
                                 </li>
                                 @php
                                     $i++;
                                 @endphp
                             @endforeach
                             
->>>>>>> 7bda9a18e6ae50b0735151c0ed43f236cc90b62e
                             </ul>
                         </li>
                     </ul>

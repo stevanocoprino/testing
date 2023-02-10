@@ -1,7 +1,6 @@
 @extends('layouts.apps')
 @section('content')
 
-   
     @foreach($news as $nw)
     @if($nw->newsLimit->count()>0)
     <section class="section">
@@ -9,7 +8,7 @@
             <div class="row">
                 <div class="col">
                     <div class="title mb-5">
-                        <h2>{{ $nw->news_type }}</h2>
+                        <h2>{{ $nw->news_type??"" }}</h2>
                     </div>
                 </div>
             </div>

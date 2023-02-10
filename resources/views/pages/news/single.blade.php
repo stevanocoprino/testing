@@ -1,49 +1,6 @@
 @extends('layouts.apps')
 @section('content')
 
-    <section>
-        <div class="slider-homepage">
-            <div class="banner banner__main overlay-full" style="background-image: url('{{ asset('assets/images/dummy-banner.jpg') }}');">
-                <div class="container position-relative h-100">
-                    <div class="banner__main-bottom">
-                        <div class="row mb-5">
-                            <div class="col-12 col-lg-7">
-                                <h1 class="text-sb-30 c-white">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h1>
-                                <div class="position-relative mb-3"><label class="text-reg-12 c-white me-2">27 Minutes Ago</label><span class="text-reg-12 c-l-blue">Sepak Bola</span></div>
-                                <a href="#" class="button-transparent">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="banner banner__main overlay-full" style="background-image: url('{{ asset('assets/images/dummy-banner.jpg') }}');">
-                <div class="container position-relative h-100">
-                    <div class="banner__main-bottom">
-                        <div class="row mb-5">
-                            <div class="col-12 col-lg-7">
-                                <h1 class="text-sb-30 c-white">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h1>
-                                <div class="position-relative mb-3"><label class="text-reg-12 c-white me-2">27 Minutes Ago</label><span class="text-reg-12 c-l-blue">Sepak Bola</span></div>
-                                <a href="#" class="button-transparent">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="banner banner__main overlay-full" style="background-image: url('{{ asset('assets/images/dummy-banner.jpg') }}');">
-                <div class="container position-relative h-100">
-                    <div class="banner__main-bottom">
-                        <div class="row mb-5">
-                            <div class="col-12 col-lg-7">
-                                <h1 class="text-sb-30 c-white">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h1>
-                                <div class="position-relative mb-3"><label class="text-reg-12 c-white me-2">27 Minutes Ago</label><span class="text-reg-12 c-l-blue">Sepak Bola</span></div>
-                                <a href="#" class="button-transparent">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="section">
         <div class="container">
@@ -58,25 +15,23 @@
                             </ol>
                         </nav>
                     </div>
-                    <div class="article">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae excepturi repellat nemo. Error recusandae ipsum dolores commodi dignissimos ad, nihil quibusdam, dicta quod delectus placeat? Culpa tempora sequi dolore cumque?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia ad odio reprehenderit laudantium corrupti quod, quaerat dolore aliquam quos quam, et quibusdam? Tempora quibusdam recusandae, distinctio obcaecati quae laudantium accusantium!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, quasi quibusdam et ducimus fuga ipsa nulla praesentium repudiandae, porro velit necessitatibus voluptatum numquam perferendis. Dolorum laudantium adipisci laborum non iusto.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae excepturi repellat nemo. Error recusandae ipsum dolores commodi dignissimos ad, nihil quibusdam, dicta quod delectus placeat? Culpa tempora sequi dolore cumque?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia ad odio reprehenderit laudantium corrupti quod, quaerat dolore aliquam quos quam, et quibusdam? Tempora quibusdam recusandae, distinctio obcaecati quae laudantium accusantium!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, quasi quibusdam et ducimus fuga ipsa nulla praesentium repudiandae, porro velit necessitatibus voluptatum numquam perferendis. Dolorum laudantium adipisci laborum non iusto.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae excepturi repellat nemo. Error recusandae ipsum dolores commodi dignissimos ad, nihil quibusdam, dicta quod delectus placeat? Culpa tempora sequi dolore cumque?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia ad odio reprehenderit laudantium corrupti quod, quaerat dolore aliquam quos quam, et quibusdam? Tempora quibusdam recusandae, distinctio obcaecati quae laudantium accusantium!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, quasi quibusdam et ducimus fuga ipsa nulla praesentium repudiandae, porro velit necessitatibus voluptatum numquam perferendis. Dolorum laudantium adipisci laborum non iusto.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae excepturi repellat nemo. Error recusandae ipsum dolores commodi dignissimos ad, nihil quibusdam, dicta quod delectus placeat? Culpa tempora sequi dolore cumque?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia ad odio reprehenderit laudantium corrupti quod, quaerat dolore aliquam quos quam, et quibusdam? Tempora quibusdam recusandae, distinctio obcaecati quae laudantium accusantium!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, quasi quibusdam et ducimus fuga ipsa nulla praesentium repudiandae, porro velit necessitatibus voluptatum numquam perferendis. Dolorum laudantium adipisci laborum non iusto.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae excepturi repellat nemo. Error recusandae ipsum dolores commodi dignissimos ad, nihil quibusdam, dicta quod delectus placeat? Culpa tempora sequi dolore cumque?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia ad odio reprehenderit laudantium corrupti quod, quaerat dolore aliquam quos quam, et quibusdam? Tempora quibusdam recusandae, distinctio obcaecati quae laudantium accusantium!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, quasi quibusdam et ducimus fuga ipsa nulla praesentium repudiandae, porro velit necessitatibus voluptatum numquam perferendis. Dolorum laudantium adipisci laborum non iusto.</p>
-                        <p>Kroasia (3-5-2): Dominik Livakovic; Josip Stanisic, Josip Sutalo, Josko Gvardiol; Ivan Perisic, Lovro Majer, Mateo Kovacic, Luka Modric, Mislav Orsic; Andrej Kramaric, Marko Livaja
-                            Maroko (4-3-3): Yassine Bounou; Achraf Hakimi, Jawad El Yamiq, Achraf Dari, Yahia Attiyat Allah; Bilal El Khannouss, Sofyan Amrabat, Abdelhamid Sabiri; Hakim Ziyech, Youssef En-Nesyri, Sofiane Boufal</p>
+                    <div class="banner banner__main overlay-full" style="background-image: url('{{ env('IMAGE_URL').$news->pic??""}}');">
+                        <div class="container position-relative h-100">
+                            
+                        </div>
                     </div>
+                    <center><small class='w100' style="text-align:center">{{ $news->pic_title??"" }}</small></center>
+                    <h2>{{ $news->title??"" }}</h2>
+                    <div class="article">
+
+                       
+                        {!! $news->description??"" !!}
+                        
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <p class="paging"></p>
                 </div>
                 <div class="col-sm-12 col-lg-4">
                     <div id="tabs">
@@ -509,3 +464,38 @@
     </section>
 
 @endsection
+@push('script')
+<script>
+    i={{ $pageNumber??1 }};
+    now={{ $pageNumber??1 }};
+    limit=10;
+    start=((i-1)*limit);
+    end=(i*limit)+2;
+    $(".article p").each(function(){
+
+        if(i>end || i<start)
+        {
+
+            $(this).hide();
+        }
+        else{
+            // $(this).replaceWith('');
+        }
+        i++;
+    })
+    totalpara=i;
+    jumlahhalaman=Math.ceil(totalpara/limit);
+    
+    for(x=1;x<=jumlahhalaman;x++)
+    {
+        if(x==now)
+        {
+            $(".paging").append("<a href='#' class='btn btn-primary'>"+x+"</a>");
+        }
+        else{
+            $(".paging").append("<a href='{{ URL::to('/'.$news->newsTypes->slug.'/'.$news->slug.'?page=') }}"+x+"' class='btn btn-warning'>"+x+"</a>");
+
+        }
+    }
+</script>
+@endpush
