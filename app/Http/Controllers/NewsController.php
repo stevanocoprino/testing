@@ -69,7 +69,7 @@ class NewsController extends Controller
 
 
         // dd($news);
-        if($news->count() > 0)
+        if(isset($news) && !empty($news) && $news->count() > 0)
         {
 
 
@@ -128,7 +128,7 @@ class NewsController extends Controller
     $totalPage=$news->lastPage();
 
 
-    if($news->count() > 0)
+    if(isset($news) && !empty($news) && $news->count() > 0)
     {
         // dd($news);
 
@@ -141,7 +141,7 @@ class NewsController extends Controller
 
         $news= News::where('slug',$slug)
         ->first();
-        if($news->count() > 0)
+        if(isset($news) && !empty($news) && $news->count() > 0)
         {
 
 
