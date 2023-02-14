@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Page | Sportify</title>
+        
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,56 +12,47 @@
 
         <link rel="stylesheet" href="{{ asset('assets/css/apps.css') }}">
 
-        {{-- <meta name="viewport" content="" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <meta name="googlebot-news" content="" />
-        <meta name="googlebot" content="" />
-        <meta name="author" content="" />
-        <meta name="robots" content="" />
-        <meta name="language" content="" />
-        <meta name="geo.country" content="" />
-        <meta http-equiv="content-language" content="" />
-        <meta name="geo.placename" content="" />
+        {{-- meta name --}}
+        <meta name="googlebot-news" content="index,follow" />
+        <meta name="googlebot" content="index,follow" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="id" />
+        <meta name="generator" content="by Sportify.id" />
+        <meta name="geo.country" content="id" />
+        <meta http-equiv="content-language" content="In-Id" />
+        <meta name="geo.placename" content="Indonesia" />
+        <meta http-equiv="Copyright" content="Sportify.id" />
+        <meta http-equiv="refresh">
+        <meta name="google-site-verification" content="_qme7sDIhow-ro08oy9rS4OchjgX25HEkZ5dkAGUUR0" />
+@stack('header_script')
 
-        <!-- S:fb meta -->
-        <meta property="og:type" content="" />
-        <meta property="og:image" content="" />
-        <meta property="og:title" content="" />
-        <meta property="og:description" content="" />
-        <meta property="og:url" content="" />
-        <meta property="og:site_name" content="" />
-        <meta property="fb:app_id" content="" />
-        <!-- e:fb meta -->
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org/",
+              "@type": "WebSite",
+              "name": "sportify.id",
+              "url": "{{ URL::to('/') }}",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "{{ URL::to('/search?key=') }}{search_term_string}",
+                "query-input": "required key=search_term_string"
+              }
+            }
+        </script>
 
-        <!-- S:tweeter card -->
-        <meta name="twitter:card" content="" />
-        <meta name="twitter:site" content="" />
-        <meta name="twitter:creator" content="">
-        <meta name="twitter:title" content="" />
-        <meta name="twitter:description" content="" />
-        <meta name="twitter:image" content="" />
-        <!-- E:tweeter card -->
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "NewsMediaOrganization",
+              "name": "Sportify.id",
+              "url": "https://sportify.id",
+              "logo": "{{ asset('assets/images/burger-black.svg') }}",
+              "sameAs": "https://www.instagram.com/sportifyindonesia/"
+            }
+            </script>
 
-        <meta name="content_category" content="" />
-        <meta name="content_subcategory" content="" />
-        <meta name="content_location" content="" />
-        <meta name="content_author_id" content="" />
-        <meta name="content_author" content="" />
-        <meta name="content_editor_id" content="" />
-        <meta name="content_editor" content="" />
-        <meta name="content_lipsus" content="" />
-        <meta name="content_lipsus_id" content="" />
-        <meta name="content_sensi" content="" />
-        <meta name="content_type" content="" />
-        <meta name="content_PublishedDate" content="" />
-        <meta property="article:published_time" content="" />
-        <meta name="content_source" content="" />
-        <meta name="content_tag" content="" />
-        <meta name="content_tags" content="" />
-        <meta name="content_total_words" content="" />
-        <meta name="subscription" content="" /> --}}
-        
+
+
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-E28SRQ36PD"></script>
         <script>

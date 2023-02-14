@@ -1,22 +1,32 @@
 @extends('layouts.apps')
 @section('content')
 
-   
     
-   
     <section class="section">
         <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="title mb-5">
-                        <h2>{{ $news[0]->newsTypes->news_type??"" }}</h2>
-                    </div>
-                </div>
-            </div>
+           
             <div class="row">
                 @foreach($news as $nw)
+                @php
+                $url='';
+                if($nw->slug_cat!="" && !empty($nw->slug_cat))
+                {
+                    $url.='/'.$nw->slug_cat;
+                }
+                if($nw->slug_sub_cat!="" && !empty($nw->slug_sub_cat))
+                {
+                    $url.='/'.$nw->slug_sub_cat;
+                }
+                if($nw->slug_sub_sub_cat!="" && !empty($nw->slug_sub_sub_cat))
+                {
+                    $url.='/'.$nw->slug_sub_sub_cat;
+                }
+                
+
+                $url.='/'.$nw->slug;
+                @endphp
                 <div class="col-12 col-md-4">
-                    <a href="{{ URL::to('/'.$nw->newsTypes->slug.'/'.$nw->slug) }}" class="card__article mb-5 d-block">
+                    <a href="{{ URL::to($url) }}" class="card__article mb-5 d-block">
                         <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$nw["pic"]) }}');"></div>
                         <div class="card__article-content">
                             <h3 class="text-sb-20 c-black">{{ $nw->title??"" }}</h3>
@@ -34,7 +44,7 @@
                 @if($i==$pageNumber)
                 {{ $i }}
                 @else
-                <a href="{{ URL::to('/'.$catslug.'?page='.$i) }}" >{{ $i }}</a>
+                <a href="{{ URL::to('/search?key='.$keyword.'?page='.$i) }}" >{{ $i }}</a>
                 @endif
                 @endfor
                 @elseif($pageNumber<6)
@@ -42,7 +52,7 @@
                 @if($i==$pageNumber)
                 {{ $i }}
                 @else
-                <a href="{{ URL::to('/'.$catslug.'?page='.$i) }}" >{{ $i }}</a>
+                <a href="{{ URL::to('/search?key='.$keyword.'?page='.$i) }}" >{{ $i }}</a>
                 @endif
                 @endfor
                 <span>Next ></span>
@@ -52,17 +62,16 @@
                 @if($i==$pageNumber)
                 {{ $i }}
                 @else
-                <a href="{{ URL::to('/'.$catslug.'?page='.$i) }}" >{{ $i }}</a>
+                <a href="{{ URL::to('/search?key='.$keyword.'?page='.$i) }}" >{{ $i }}</a>
                 @endif
                 @endfor
-                
                 @else
                 <span>< Prev</span>
                 @for($i=($pageNumber-3);$i<=($pageNumber+3);$i++)
                 @if($i==$pageNumber)
                 {{ $i }}
                 @else
-                <a href="{{ URL::to('/'.$catslug.'?page='.$i) }}" >{{ $i }}</a>
+                <a href="{{ URL::to('/search?key='.$keyword.'?page='.$i) }}" >{{ $i }}</a>
                 @endif
                 @endfor
                 <span>Next ></span>
@@ -77,35 +86,31 @@
 @endsection
 
 
-
 @push('header_script')
-<title>Sportify.id - {{ $news[0]->newsTypes->seo_title }}</title>
-        <meta name="title" content="Sportify.id - {{ $news[0]->newsTypes->seo_title }}" />
-        <meta name="description" content="{{ $news[0]->newsTypes->seo_description }}" />
-        <meta name="keywords" content="{{ $news[0]->newsTypes->seo_title }}" />
-        <meta content="{{ URL::to('/'.$news[0]->newsTypes->slug) }}" itemprop="url" />
+        <title>Sportify.id - Sumber Terbaik untuk Berita, Tinjauan, dan Analisis Olahraga</title>
+        <meta name="title" content="Sportify.id - Sumber Terbaik untuk Berita, Tinjauan, dan Analisis Olahraga" />
+        <meta name="description" content="Kunjungi Sportify.id untuk memperoleh informasi terbaru tentang olahraga dan untuk membaca berita, artikel, dan analisis terkait olahraga dari para ahli di bidangnya." />
+        <meta name="keywords" content="olahraga, berita olahraga, informasi olahraga, sportify.id, media olahraga"/>
+        <meta content="{{ URL::to('/') }}" itemprop="url" />
         <meta name="thumbnailUrl" content="{{ asset('assets/images/burger-black.svg') }}" />
         <!-- S:fb meta -->
         <meta property="og:type" content="website" />
         <meta property="og:image" content="{{ asset('assets/images/burger-black.svg') }}" />
-        <meta property="og:title" content="Sportify.id - {{ $news[0]->newsTypes->seo_title }}" />
-        <meta property="og:description" content="{{ $news[0]->newsTypes->seo_description }}" />
-        <meta property="og:url" content="{{ URL::to('/'.$news[0]->newsTypes->slug) }}" />
+        <meta property="og:title" content="Sportify.id - Sumber Terbaik untuk Berita, Tinjauan, dan Analisis Olahraga" />
+        <meta property="og:description" content="Kunjungi Sportify.id untuk memperoleh informasi terbaru tentang olahraga dan untuk membaca berita, artikel, dan analisis terkait olahraga dari para ahli di bidangnya." />
+        <meta property="og:url" content="{{ URL::to('/') }}" />
         <meta property="og:site_name" content="Sportify.id" />
         <meta property="fb:app_id" content="" />
         <!-- e:fb meta -->
 
         <!-- S:tweeter card -->
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="{{ URL::to('/'.$news[0]->newsTypes->slug) }}" />
+        <meta name="twitter:site" content="{{ URL::to('/') }}" />
         <meta name="twitter:creator" content="Sportify.id">
-        <meta name="twitter:title" content="Sportify.id - {{ $news[0]->newsTypes->seo_title }}" />
-        <meta name="twitter:description" content="{{  $news[0]->newsTypes->seo_description }}" />
+        <meta name="twitter:title" content="Sportify.id - Sumber Terbaik untuk Berita, Tinjauan, dan Analisis Olahraga" />
+        <meta name="twitter:description" content="Kunjungi Sportify.id untuk memperoleh informasi terbaru tentang olahraga dan untuk membaca berita, artikel, dan analisis terkait olahraga dari para ahli di bidangnya." />
         <meta name="twitter:image" content="{{ asset('assets/images/burger-black.svg') }}" />
         <!-- E:tweeter card -->
-@if(isset($news[0]->newsTypes->slug) && !empty($news[0]->newsTypes->slug) && $news[0]->newsTypes->slug!="" )
-        <meta name="content_category" content="{{ $news[0]->newsTypes->news_type }}" />
-@endif
 
         <meta name="content_location" content="Indonesia" />
         <meta name="content_author_id" content="sportify.id" />
@@ -119,31 +124,4 @@
         <meta name="content_tags" content="" />
         <meta name="content_total_words" content="" />
         <meta name="subscription" content="" /> --}}
-
-
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org/", 
-          "@type": "BreadcrumbList", 
-          "itemListElement": [
-            {
-                "@type": "ListItem", 
-                "position": 1, 
-                "name": "Home",
-                "item": "{{ URL::to('/') }}"  
-            }
-            @if(isset($news[0]->newsTypes->news_type) && !empty($news[0]->newsTypes->news_type) && $news[0]->newsTypes->news_type!="" )
-           
-            
-            ,{
-                "@type": "ListItem", 
-                "position": 2, 
-                "name": "{{ $news[0]->newsTypes->news_type??"" }}",
-                "item": "{{ URL::to('/'.$news[0]->newsTypes->slug) }}"  
-            }
-            @endif
-            
-            ]
-        }
-    </script>
 @endpush

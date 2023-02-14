@@ -100,6 +100,7 @@ class HomepageController extends Controller
         ->limit(3)
         ->get();
         
+        $home="active";
         return view('pages.homepage.index', compact(
         // 'newsTypes',
         'hotNews',
@@ -111,7 +112,7 @@ class HomepageController extends Controller
         'sepakBola',
         'bolaBasket',
         'bolaVoli',
-        'international'));
+        'international','home'));
     }
 
 }

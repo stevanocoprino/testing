@@ -1,4 +1,4 @@
-<header id="header" class="header top-trans">
+<header id="header" class="header top-trans {{ $home??"" }}">
     <div class="header__top">
         <div class="container">
             <div class="row">
@@ -20,8 +20,9 @@
                 </div>
                 <div class="col-3">
                     <div class="mb-3 header__search">
-                        <input type="text" class="form-control" placeholder="Cari... " aria-label="Cari... " aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary" type="button" id="search"><img src="{{ asset('assets/images/search.svg') }}" alt=""></button>
+                        <form method="GET" action="{{ URL::to('/search') }}">
+                        <input type="text" name="key" class="form-control" value="{{ $request->key??"" }}" placeholder="Cari... " aria-label="Cari... " aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="submit" id="search"><img src="{{ asset('assets/images/search.svg') }}" alt=""></button>
                         <a href="javascript:;" id="searchToggle">
                             <img src="{{ asset('assets/images/search.svg') }}" class="searchToggle" alt="">
                             <img src="{{ asset('assets/images/close-white.svg') }}" class="closeToggle" style="display: none; width: 12px;" alt="">

@@ -2,6 +2,10 @@
 @section('content')
 
 
+@php
+$url="";
+$i=2;
+@endphp
     <section class="section">
         <div class="container">
             <div class="row">
@@ -9,9 +13,36 @@
                     <div class="breadcrumbs mb-5">
                         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Liga Italia</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</li>
+                                <li class="breadcrumb-item"><a href="{{ URL::to('/') }}">Home</a></li>
+                                @if(isset($news->newsTypes->slug) && !empty($news->newsTypes->slug) && $news->newsTypes->slug!="" )
+                                <li class="breadcrumb-item"><a href="{{ URL::to('/'.$news->newsTypes->slug) }}">{{ $news->newsTypes->news_type }}</a></li>
+                                @php
+                                $url.="/".$news->newsTypes->slug;
+                                $i++;
+                                @endphp
+
+                                @endif
+                               
+                                @if(isset($news->newsSubTypes->slug) && !empty($news->newsSubTypes->slug) && $news->newsSubTypes->slug!="" )
+                                <li class="breadcrumb-item"><a href="{{ URL::to('/'.$news->newsTypes->slug.'/'.$news->newsSubTypes->slug) }}">{{ $news->newsSubTypes->sub_types }}</a></li>
+                                @php
+                                $url.="/".$news->newsSubTypes->slug;
+                                $i++;
+                                @endphp
+                                @endif
+                                
+                                @if(isset($news->newsSubSubTypes->slug) && !empty($news->newsSubSubTypes->slug) && $news->newsSubSubTypes->slug!="" )
+                                <li class="breadcrumb-item"><a href="{{ URL::to('/'.$news->newsTypes->slug.'/'.$news->newsSubTypes->slug.'/'.$news->newsSubSubTypes->slug) }}">{{ $news->newsSubSubTypes->sub_sub_types }}</a></li>
+                                @php
+                                $url.="/".$news->newsSubSubTypes->slug;
+                                $i++;
+                                @endphp
+                                @endif
+                               
+                                @php
+                                 $url.="/".$news->slug;
+                                @endphp
+                                <li class="breadcrumb-item active" aria-current="page">{{ $news->title }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -498,4 +529,130 @@
         }
     }
 </script>
+@endpush
+
+@push('header_script')
+        <title>Sportify.id - {{ $news->title }}</title>
+        <meta name="title" content="Sportify.id - {{ $news->title }}" />
+        <meta name="description" content="{{ $news->seo_description }}" />
+        <meta name="keywords" content="{{ $news->seo_title }}" />
+        <meta content="{{ URL::to($url) }}" itemprop="url" />
+        <meta name="thumbnailUrl" content="{{ env('IMAGE_URL').$news->pic??""}}" />
+        <!-- S:fb meta -->
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="{{ env('IMAGE_URL').$news->pic??""}}" />
+        <meta property="og:title" content="Sportify.id - {{ $news->title }}" />
+        <meta property="og:description" content="{{ $news->short_desc }}" />
+        <meta property="og:url" content="{{ URL::to($url) }}" />
+        <meta property="og:site_name" content="Sportify.id" />
+        <meta property="fb:app_id" content="" />
+        <!-- e:fb meta -->
+
+        <!-- S:tweeter card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="{{ URL::to($url) }}" />
+        <meta name="twitter:creator" content="Sportify.id">
+        <meta name="twitter:title" content="Sportify.id - {{ $news->title }}" />
+        <meta name="twitter:description" content="{{ $news->short_desc }}" />
+        <meta name="twitter:image" content="{{ env('IMAGE_URL').$news->pic??""}}" />
+        <!-- E:tweeter card -->
+@if(isset($news->newsTypes->slug) && !empty($news->newsTypes->slug) && $news->newsTypes->slug!="" )
+        <meta name="content_category" content="{{ $news->newsTypes->news_type }}" />
+@endif
+@if(isset($news->newsSubTypes->slug) && !empty($news->newsSubTypes->slug) && $news->newsSubTypes->slug!="" )
+        <meta name="content_subcategory" content="{{ $news->newsSubTypes->sub_types }}" />
+@endif
+@if(isset($news->newsSubSubTypes->slug) && !empty($news->newsSubSubTypes->slug) && $news->newsSubSubTypes->slug!="" )
+        <meta name="content_subsubcategory" content="{{ $news->newsSubSubTypes->sub_sub_types }}" />
+@endif
+        <meta name="content_location" content="Indonesia" />
+        <meta name="content_author_id" content="sportify.id" />
+        <meta name="content_author" content="sportify.id" />
+        <meta name="content_editor_id" content="sportify.id" />
+        <meta name="content_editor" content="sportify.id" />
+        <meta property="article:published_time" content="{{ date("H:i:s", strtotime($news->publish_on)) }}" />
+        <meta name="content_PublishedDate" content="{{ date("Y-m-d", strtotime($news->publish_on)) }}" />
+        {{--        
+        <meta name="content_type" content="singlepagenews" />
+        <meta name="content_source" content="" />
+        <meta name="content_tag" content="" />
+        <meta name="content_tags" content="" />
+        <meta name="content_total_words" content="" />
+        <meta name="subscription" content="" /> --}}
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{{ $news->title }}",
+      "image": "{{ env('IMAGE_URL').$news->pic??""}}",  
+      "author": {
+        "@type": "Organization",
+        "name": "sportify.id"
+      },  
+      "publisher": {
+        "@type": "Organization",
+        "name": "sportify.id",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ asset('assets/images/burger-black.svg') }}"
+        }
+      },
+      "datePublished": "{{ $news->publish_on }}",
+      "dateModified": "{{ $news->updateon }}"
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/", 
+          "@type": "BreadcrumbList", 
+          "itemListElement": [
+            {
+                "@type": "ListItem", 
+                "position": 1, 
+                "name": "Home",
+                "item": "{{ URL::to('/') }}"  
+            }
+            @if(isset($news->newsTypes->slug) && !empty($news->newsTypes->slug) && $news->newsTypes->slug!="" )
+           
+            
+            ,{
+                "@type": "ListItem", 
+                "position": 2, 
+                "name": "{{ $news->newsTypes->news_type }}",
+                "item": "{{ URL::to('/'.$news->newsTypes->slug) }}"  
+            }
+            @endif
+            @if(isset($news->newsSubTypes->slug) && !empty($news->newsSubTypes->slug) && $news->newsSubTypes->slug!="" )
+           
+            ,{
+                "@type": "ListItem", 
+                "position": 3, 
+                "name": "{{ $news->newsSubTypes->sub_types }}",
+                "item": "{{ URL::to('/'.$news->newsTypes->slug.'/'.$news->newsSubTypes->slug) }}"  
+            }
+            @endif
+            @if(isset($news->newsSubSubTypes->slug) && !empty($news->newsSubSubTypes->slug) && $news->newsSubSubTypes->slug!="" )
+           
+            ,{
+                "@type": "ListItem", 
+                "position": 4, 
+                "name": "{{ $news->newsSubSubTypes->sub_sub_types }}",
+                "item": "{{ URL::to('/'.$news->newsTypes->slug.'/'.$news->newsSubTypes->slug.'/'.$news->newsSubSubTypes->slug) }}"  
+            }
+            @endif
+            ,{
+                "@type": "ListItem", 
+                "position": {{ $i }}, 
+                "name": "{{ $news->title }}",
+                "item": "{{ URL::to($url) }}"  
+            }
+            ]
+        }
+        </script>
+
+
+
 @endpush

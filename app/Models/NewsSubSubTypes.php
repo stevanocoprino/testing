@@ -31,7 +31,7 @@ class NewsSubSubTypes extends Model
 
     public function news()
     {
-        return $this->hasMany(News::class,'news_sub_sub_type','id_news_sub_sub_types');
+        return $this->hasMany(News::class,'news_sub_sub_types','id_news_sub_sub_types');
     }
 
     public function newsLimit()

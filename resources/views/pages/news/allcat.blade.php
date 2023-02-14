@@ -47,3 +47,45 @@
     
 
 @endsection
+
+
+@push('header_script')
+        <title>Sportify.id - Sumber Terbaik untuk Berita, Tinjauan, dan Analisis Olahraga</title>
+        <meta name="title" content="Sportify.id - Sumber Terbaik untuk Berita, Tinjauan, dan Analisis Olahraga" />
+        <meta name="description" content="Kunjungi Sportify.id untuk memperoleh informasi terbaru tentang olahraga dan untuk membaca berita, artikel, dan analisis terkait olahraga dari para ahli di bidangnya." />
+        <meta name="keywords" content="olahraga, berita olahraga, informasi olahraga, sportify.id, media olahraga"/>
+        <meta content="{{ URL::to('/') }}" itemprop="url" />
+        <meta name="thumbnailUrl" content="{{ asset('assets/images/burger-black.svg') }}" />
+        <!-- S:fb meta -->
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="{{ asset('assets/images/burger-black.svg') }}" />
+        <meta property="og:title" content="Sportify.id - Sumber Terbaik untuk Berita, Tinjauan, dan Analisis Olahraga" />
+        <meta property="og:description" content="Kunjungi Sportify.id untuk memperoleh informasi terbaru tentang olahraga dan untuk membaca berita, artikel, dan analisis terkait olahraga dari para ahli di bidangnya." />
+        <meta property="og:url" content="{{ URL::to('/') }}" />
+        <meta property="og:site_name" content="Sportify.id" />
+        <meta property="fb:app_id" content="" />
+        <!-- e:fb meta -->
+
+        <!-- S:tweeter card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="{{ URL::to('/') }}" />
+        <meta name="twitter:creator" content="Sportify.id">
+        <meta name="twitter:title" content="Sportify.id - Sumber Terbaik untuk Berita, Tinjauan, dan Analisis Olahraga" />
+        <meta name="twitter:description" content="Kunjungi Sportify.id untuk memperoleh informasi terbaru tentang olahraga dan untuk membaca berita, artikel, dan analisis terkait olahraga dari para ahli di bidangnya." />
+        <meta name="twitter:image" content="{{ asset('assets/images/burger-black.svg') }}" />
+        <!-- E:tweeter card -->
+
+        <meta name="content_location" content="Indonesia" />
+        <meta name="content_author_id" content="sportify.id" />
+        <meta name="content_author" content="sportify.id" />
+        <meta name="content_editor_id" content="sportify.id" />
+        <meta name="content_editor" content="sportify.id" />
+        {{--        
+        <meta name="content_type" content="singlepagenews" />
+        <meta name="content_source" content="" />
+        <meta name="content_tag" content="" />
+        <meta name="content_tags" content="" />
+        <meta name="content_total_words" content="" />
+        <meta name="subscription" content="" /> --}}
+@endpush
+

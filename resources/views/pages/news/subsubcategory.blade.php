@@ -7,14 +7,14 @@
             <div class="row">
                 <div class="col">
                     <div class="title mb-5">
-                        <h2>{{ $news[0]->newsSubTypes->sub_types??""  }}</h2>
+                        <h2>{{ $news[0]->newsSubSubTypes->sub_sub_types??""  }}</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 @foreach($news as $nw)
                 <div class="col-12 col-md-4">
-                    <a href="{{ URL::to('/'.$nw->newsTypes->slug.'/'.$nw->newsSubTypes->slug.'/'.$nw->slug) }}" class="card__article mb-5 d-block">
+                    <a href="{{ URL::to('/'.$nw->newsTypes->slug.'/'.$nw->newsSubTypes->slug.'/'.$nw->newsSubSubTypes->slug.'/'.$nw->slug) }}" class="card__article mb-5 d-block">
                         <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/img/'.$nw["pic"]) }}');"></div>
                         <div class="card__article-content">
                             <h3 class="text-sb-20 c-black">{{ $nw->title??"" }}</h3>
@@ -32,7 +32,7 @@
                 @if($i==$pageNumber)
                 {{ $i }}
                 @else
-                <a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'?page='.$i) }}" >{{ $i }}</a>
+                <a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'/'.$subsubcatslug.'?page='.$i) }}" >{{ $i }}</a>
                 @endif
                 @endfor
                 @elseif($pageNumber<6)
@@ -40,7 +40,7 @@
                 @if($i==$pageNumber)
                 {{ $i }}
                 @else
-                <a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'?page='.$i) }}" >{{ $i }}</a>
+                <a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'/'.$subsubcatslug.'?page='.$i) }}" >{{ $i }}</a>
                 @endif
                 @endfor
                 <span>Next ></span>
@@ -50,7 +50,7 @@
                 @if($i==$pageNumber)
                 {{ $i }}
                 @else
-                <a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'?page='.$i) }}" >{{ $i }}</a>
+                <a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'/'.$subsubcatslug.'?page='.$i) }}" >{{ $i }}</a>
                 @endif
                 @endfor
                 
@@ -60,7 +60,7 @@
                 @if($i==$pageNumber)
                 {{ $i }}
                 @else
-                <a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'?page='.$i) }}" >{{ $i }}</a>
+                <a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'/'.$subsubcatslug.'?page='.$i) }}" >{{ $i }}</a>
                 @endif
                 @endfor
                 <span>Next ></span>
@@ -74,29 +74,30 @@
 
 @endsection
 
+
 @push('header_script')
-<title>Sportify.id - {{ $news[0]->newsSubTypes->seo_title }}</title>
-        <meta name="title" content="Sportify.id - {{ $news[0]->newsSubTypes->seo_title }}" />
-        <meta name="description" content="{{ $news[0]->newsSubTypes->seo_description }}" />
-        <meta name="keywords" content="{{ $news[0]->newsSubTypes->seo_title }}" />
-        <meta content="{{ URL::to('/'.$news[0]->newsTypes->slug.'/'.$news[0]->newsSubTypes->slug) }}" itemprop="url" />
+<title>Sportify.id - {{ $news[0]->newsSubSubTypes->seo_title }}</title>
+        <meta name="title" content="Sportify.id - {{ $news[0]->newsSubSubTypes->seo_title }}" />
+        <meta name="description" content="{{ $news[0]->newsSubSubTypes->seo_description }}" />
+        <meta name="keywords" content="{{ $news[0]->newsSubSubTypes->seo_title }}" />
+        <meta content="{{ URL::to('/'.$news[0]->newsTypes->slug.'/'.$news[0]->newsSubTypes->slug.'/'.$news[0]->newsSubSubTypes->slug) }}" itemprop="url" />
         <meta name="thumbnailUrl" content="{{ asset('assets/images/burger-black.svg') }}" />
         <!-- S:fb meta -->
         <meta property="og:type" content="website" />
         <meta property="og:image" content="{{ asset('assets/images/burger-black.svg') }}" />
-        <meta property="og:title" content="Sportify.id - {{ $news[0]->newsSubTypes->seo_title }}" />
-        <meta property="og:description" content="{{ $news[0]->newsSubTypes->seo_description }}" />
-        <meta property="og:url" content="{{ URL::to('/'.$news[0]->newsTypes->slug.'/'.$news[0]->newsSubTypes->slug) }}" />
+        <meta property="og:title" content="Sportify.id - {{ $news[0]->newsSubSubTypes->seo_title }}" />
+        <meta property="og:description" content="{{ $news[0]->newsSubSubTypes->seo_description }}" />
+        <meta property="og:url" content="{{ URL::to('/'.$news[0]->newsTypes->slug.'/'.$news[0]->newsSubTypes->slug.'/'.$news[0]->newsSubSubTypes->slug) }}" />
         <meta property="og:site_name" content="Sportify.id" />
         <meta property="fb:app_id" content="" />
         <!-- e:fb meta -->
 
         <!-- S:tweeter card -->
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="{{ URL::to('/'.$news[0]->newsTypes->slug.'/'.$news[0]->newsSubTypes->slug) }}" />
+        <meta name="twitter:site" content="{{ URL::to('/'.$news[0]->newsTypes->slug.'/'.$news[0]->newsSubTypes->slug.'/'.$news[0]->newsSubSubTypes->slug) }}" />
         <meta name="twitter:creator" content="Sportify.id">
-        <meta name="twitter:title" content="Sportify.id - {{ $news[0]->newsSubTypes->seo_title }}" />
-        <meta name="twitter:description" content="{{  $news[0]->newsSubTypes->seo_description }}" />
+        <meta name="twitter:title" content="Sportify.id - {{ $news[0]->newsSubSubTypes->seo_title }}" />
+        <meta name="twitter:description" content="{{  $news[0]->newsSubSubTypes->seo_description }}" />
         <meta name="twitter:image" content="{{ asset('assets/images/burger-black.svg') }}" />
         <!-- E:tweeter card -->
 @if(isset($news[0]->newsTypes->slug) && !empty($news[0]->newsTypes->slug) && $news[0]->newsTypes->slug!="" )
@@ -105,11 +106,15 @@
 @if(isset($news[0]->newsSubTypes->slug) && !empty($news[0]->newsSubTypes->slug) && $news[0]->newsSubTypes->slug!="" )
         <meta name="content_subcategory" content="{{ $news[0]->newsSubTypes->sub_types }}" />
 @endif
+@if(isset($news[0]->newsSubSubTypes->slug) && !empty($news[0]->newsSubSubTypes->slug) && $news[0]->newsSubSubTypes->slug!="" )
+        <meta name="content_subsubcategory" content="{{ $news[0]->newsSubSubTypes->sub_sub_types }}" />
+@endif
         <meta name="content_location" content="Indonesia" />
         <meta name="content_author_id" content="sportify.id" />
         <meta name="content_author" content="sportify.id" />
         <meta name="content_editor_id" content="sportify.id" />
         <meta name="content_editor" content="sportify.id" />
+
 
 
 
@@ -142,6 +147,17 @@
                 "position": 3, 
                 "name": "{{ $news[0]->newsSubTypes->sub_types??"" }}",
                 "item": "{{ URL::to('/'.$news[0]->newsTypes->slug.'/'.$news[0]->newsSubTypes->slug) }}"  
+            }
+            @endif
+            
+            @if(isset($news[0]->newsSubSubTypes->slug) && !empty($news[0]->newsSubSubTypes->slug) && $news[0]->newsSubSubTypes->slug!="" )
+           
+            
+            ,{
+                "@type": "ListItem", 
+                "position": 4, 
+                "name": "{{ $news[0]->newsSubSubTypes->sub_sub_types??"" }}",
+                "item": "{{ URL::to('/'.$news[0]->newsTypes->slug.'/'.$news[0]->newsSubTypes->slug.'/'.$news[0]->newsSubSubTypes->slug) }}"  
             }
             @endif
             ]

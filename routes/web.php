@@ -20,5 +20,8 @@ use App\Http\Controllers\NewsController;
 Route::get('/', [HomepageController::class, 'index']);
 
 // News
+Route::get('/search', [NewsController::class, 'search']);
 Route::get('/{category}', [NewsController::class, 'archive']);
 Route::get('/{category}/{slug}', [NewsController::class, 'single']);
+Route::get('/{category}/{subcategory}/{slug}', [NewsController::class, 'subsingle']);
+Route::get('/{category}/{subcategory}/{subsubcategory}/{slug}', [NewsController::class, 'subsubsingle']);
