@@ -11089,6 +11089,7 @@ textarea.form-control-lg {
 .pagination li.current, .paging li.current {
   background: black;
   border-radius: 4px;
+  color: white;
 }
 .pagination li.current a, .paging li.current a {
   color: white;
