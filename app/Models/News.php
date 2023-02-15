@@ -26,7 +26,10 @@ class News extends Model
         'publish_on',
         'is_publish',
         'news_view',
-        'news_like'
+        'news_like',
+        'seo_title',
+        'seo_description',
+        'seo_tags'
     ];
 
     /**

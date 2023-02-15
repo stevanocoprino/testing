@@ -18,16 +18,19 @@ class HomepageController extends Controller
         // ->orderBy('urutan','ASC')
         // // ->limit("4")
         // ->get();
+       
         $i=0;
-        $hotNews = News::with(['newsTypes'])
+        $hotNews = News::with(['newsTypes','newsSubTypes','newsSubTypes'])
         ->where('is_publish','1')
+        // ->where('news_id','1259')
         ->where('publish_on','<=',date("Y-m-d H:i:s"))
         ->orderBy('publish_on','DESC')
         ->limit('5')
         ->get();
+        // dd($hotNews);
         $i=$i+5;
 
-        $terbaruNews = News::with(['newsTypes'])
+        $terbaruNews = News::with(['newsTypes','newsSubTypes','newsSubTypes'])
         ->where('is_publish','1')
         ->where('publish_on','<=',date("Y-m-d H:i:s"))
         ->orderBy('publish_on','DESC')
@@ -35,7 +38,7 @@ class HomepageController extends Controller
         ->get();
         $i=$i+7;
         
-        $terbaruNews1 = News::with(['newsTypes'])
+        $terbaruNews1 = News::with(['newsTypes','newsSubTypes','newsSubTypes'])
         ->where('is_publish','1')
         ->where('publish_on','<=',date("Y-m-d H:i:s"))
         ->orderBy('publish_on','DESC')
@@ -43,7 +46,7 @@ class HomepageController extends Controller
         ->get();
         $i=$i+4;
         
-        $terbaruNews2 = News::with(['newsTypes'])
+        $terbaruNews2 = News::with(['newsTypes','newsSubTypes','newsSubTypes'])
         ->where('is_publish','1')
         ->where('publish_on','<=',date("Y-m-d H:i:s"))
         ->orderBy('publish_on','DESC')
@@ -51,7 +54,7 @@ class HomepageController extends Controller
         ->get();
         $i=$i+4;
 
-        $terbaruNews3 = News::with(['newsTypes'])
+        $terbaruNews3 = News::with(['newsTypes','newsSubTypes','newsSubTypes'])
         ->where('is_publish','1')
         ->where('publish_on','<=',date("Y-m-d H:i:s"))
         ->orderBy('publish_on','DESC')
@@ -59,7 +62,7 @@ class HomepageController extends Controller
         ->get();
         $i=$i+4;
 
-        $terbaruNews4 = News::with(['newsTypes'])
+        $terbaruNews4 = News::with(['newsTypes','newsSubTypes','newsSubTypes'])
         ->where('is_publish','1')
         ->where('publish_on','<=',date("Y-m-d H:i:s"))
         ->orderBy('publish_on','DESC')
@@ -67,7 +70,7 @@ class HomepageController extends Controller
         ->get();
         $i=$i+4;
 
-        $sepakBola= News::with(['newsTypes'])
+        $sepakBola= News::with(['newsTypes','newsSubTypes','newsSubTypes'])
         ->where('news_type','15')
         ->where('is_publish','1')
         ->where('publish_on','<=',date("Y-m-d H:i:s"))
@@ -75,7 +78,7 @@ class HomepageController extends Controller
         ->limit(3)
         ->get();
 
-        $bolaBasket= News::with(['newsTypes'])
+        $bolaBasket= News::with(['newsTypes','newsSubTypes','newsSubTypes'])
         ->where('news_type','16')
         ->where('is_publish','1')
         ->where('publish_on','<=',date("Y-m-d H:i:s"))
@@ -83,7 +86,7 @@ class HomepageController extends Controller
         ->limit(3)
         ->get();
 
-        $bolaVoli= News::with(['newsTypes'])
+        $bolaVoli= News::with(['newsTypes','newsSubTypes','newsSubTypes'])
         ->where('news_type','17')
         ->where('is_publish','1')
         ->where('publish_on','<=',date("Y-m-d H:i:s"))
@@ -92,7 +95,7 @@ class HomepageController extends Controller
         ->get();
         
 
-        $international= News::with(['newsTypes'])
+        $international= News::with(['newsTypes','newsSubTypes','newsSubTypes'])
         ->where('news_type','36')
         ->where('is_publish','1')
         ->where('publish_on','<=',date("Y-m-d H:i:s"))
@@ -113,6 +116,20 @@ class HomepageController extends Controller
         'bolaBasket',
         'bolaVoli',
         'international','home'));
+    }
+
+    public function subscribe(Request $request)
+    {
+
+        $keyword=urldecode($request["email"]);
+        $ins["email"]=$keyword;
+        $ins["ip_address"]=$request->i;
+        $ins["created_at"]=date("Y-m-d H:i:s");
+        $ins["updated_at"]=date("Y-m-d H:i:s");
+
+
+        DB::table("subscribe")->insert($ins);
+      
     }
 
 }

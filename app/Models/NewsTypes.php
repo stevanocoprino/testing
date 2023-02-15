@@ -39,6 +39,8 @@ class NewsTypes extends Model
     {
         return $this->hasMany(NewsSubTypes::class,'id_news_types','news_type_id')->orderBy("sort","asc");
     }
+    
+    
 
     public function newsLimit()
     {

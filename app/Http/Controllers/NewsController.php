@@ -78,13 +78,16 @@ class NewsController extends Controller
         else{
 
 
-            $news= News::where('slug',$slug)
+            $news= News::with(['newsSubSubTypes','newsSubTypes','newsTypes'])
+            ->where('slug',$slug)
             ->first();
             if(isset($news) && !empty($news) && $news->count() > 0)
             {
+                $this->updateViews($news->news_id,$request->ip);
     
     
-                return view('pages.news.single',compact('news','pageNumber'));
+                $otherNews=$this->get_detail($news->news_type,$news->news_id);
+                return view('pages.news.single',compact('news','pageNumber','otherNews'));
             }
             else{
                 $news= NewsTypes::with(['newsLimit'])
@@ -107,6 +110,99 @@ class NewsController extends Controller
 
     }
 
+    function get_detail($category,$id)
+    {
+        $i=0;
+        
+        $terbaruNews1 = News::with(['newsTypes','newsSubTypes','newsSubTypes'])
+        ->where('news_type',$category)
+        ->where('news_id','!=',$id)
+        ->where('is_publish','1')
+        ->where('publish_on','<=',date("Y-m-d H:i:s"))
+        ->orderBy('publish_on','DESC')
+        ->offset($i)->limit(4)
+        ->get();
+        $i=$i+4;
+        
+        $terbaruNews2 = News::with(['newsTypes','newsSubTypes','newsSubTypes'])
+        ->where('news_type',$category)
+        ->where('news_id','!=',$id)
+        ->where('is_publish','1')
+        ->where('publish_on','<=',date("Y-m-d H:i:s"))
+        ->orderBy('publish_on','DESC')
+        ->offset($i)->limit(4)
+        ->get();
+        $i=$i+4;
+
+        $terbaruNews3 = News::with(['newsTypes','newsSubTypes','newsSubTypes'])
+        ->where('news_type',$category)
+        ->where('news_id','!=',$id)
+        ->where('is_publish','1')
+        ->where('publish_on','<=',date("Y-m-d H:i:s"))
+        ->orderBy('publish_on','DESC')
+        ->offset($i)->limit(4)
+        ->get();
+        $i=$i+4;
+
+        $terbaruNews4 = News::with(['newsTypes','newsSubTypes','newsSubTypes'])
+        ->where('news_type',$category)
+        ->where('news_id','!=',$id)
+        ->where('is_publish','1')
+        ->where('publish_on','<=',date("Y-m-d H:i:s"))
+        ->orderBy('publish_on','DESC')
+        ->offset($i)->limit(4)
+        ->get();
+        $i=$i+4;
+
+        $trendingTags = DB::table('news_tags')
+        ->orderBy('tags_view','DESC')
+        ->limit(5)
+        ->get();
+
+        $return["terbaruNews1"]=$terbaruNews1;
+        $return["terbaruNews2"]=$terbaruNews2;
+        $return["terbaruNews3"]=$terbaruNews3;
+        $return["terbaruNews4"]=$terbaruNews4;
+        $return["trendingTags"]=$trendingTags;
+        return $return;
+    }
+
+    function updateViews($id,$ip){
+        $news=News::where("news_id",$id)->first();
+
+        $getTags=$news->seo_tags;
+        $tags=explode(",",$getTags);
+        if(!empty($tags))
+        {
+            foreach($tags as $key=>$val)
+            {
+                if($val!="")
+                {
+                $ins["tags"]=$val;
+                $ins["ip_address"]=$ip;
+                $ins["created_at"]=date("Y-m-d H:i:s");
+                $ins["updated_at"]=date("Y-m-d H:i:s");
+
+
+                DB::table("rel_tags")->insert($ins);
+                DB::table("news_tags")->where("tags",$val)->update( array(
+                    'tags_view' => DB::raw( 'tags_view + 1' )
+                ) );
+                }
+            }
+        }
+        $news2=News::where("news_id",$id)->update( array(
+            'news_view' => DB::raw( 'news_view + 1' )
+        ) );
+        $ins2["id_news"]=$id;
+        $ins2["ip_address"]=$ip;
+        $ins2["created_at"]=date("Y-m-d H:i:s");
+        $ins2["updated_at"]=date("Y-m-d H:i:s");
+        DB::table("rel_views")->insert($ins2);
+
+
+        
+    }
     
 
     public function index()
@@ -118,7 +214,8 @@ class NewsController extends Controller
     public function search(Request $request)
     {
 
-        $keyword=$request["key"];
+        $keyword=urldecode($request["key"]);
+      
         if(isset($request->page))
         {
             $pageNumber=$request->page;
@@ -151,21 +248,21 @@ class NewsController extends Controller
                      ->orWhere('news.description', 'LIKE', '%'.$keyword.'%')
                      ->orWhere('news.seo_description', 'LIKE', '%'.$keyword.'%')
                      ->orWhere('news.seo_title', 'LIKE', '%'.$keyword.'%')
-                     ->orWhere('news.seo_tags', 'LIKE', '%'.$keyword.'%')
-                     ->orWhere('news_types.news_type', 'LIKE', '%'.$keyword.'%')
-                     ->orWhere('news_types.seo_title', 'LIKE', '%'.$keyword.'%')
-                     ->orWhere('news_types.seo_description', 'LIKE', '%'.$keyword.'%')
-                     ->orWhere('news_sub_types.sub_types', 'LIKE', '%'.$keyword.'%')
-                     ->orWhere('news_sub_types.seo_title', 'LIKE', '%'.$keyword.'%')
-                     ->orWhere('news_sub_types.seo_description', 'LIKE', '%'.$keyword.'%')
-                     ->orWhere('news_sub_sub_types.seo_description', 'LIKE', '%'.$keyword.'%')
-                     ->orWhere('news_sub_sub_types.seo_title', 'LIKE', '%'.$keyword.'%')
-                     ->orWhere('news_sub_sub_types.sub_sub_types', 'LIKE', '%'.$keyword.'%');
+                     ->orWhere('news.seo_tags', 'LIKE', '%'.$keyword.'%');
+                    //  ->orWhere('news_types.news_type', 'LIKE', '%'.$keyword.'%')
+                    //  ->orWhere('news_types.seo_title', 'LIKE', '%'.$keyword.'%')
+                    //  ->orWhere('news_types.seo_description', 'LIKE', '%'.$keyword.'%')
+                    //  ->orWhere('news_sub_types.sub_types', 'LIKE', '%'.$keyword.'%')
+                    //  ->orWhere('news_sub_types.seo_title', 'LIKE', '%'.$keyword.'%')
+                    //  ->orWhere('news_sub_types.seo_description', 'LIKE', '%'.$keyword.'%')
+                    //  ->orWhere('news_sub_sub_types.seo_description', 'LIKE', '%'.$keyword.'%')
+                    //  ->orWhere('news_sub_sub_types.seo_title', 'LIKE', '%'.$keyword.'%')
+                    //  ->orWhere('news_sub_sub_types.sub_sub_types', 'LIKE', '%'.$keyword.'%');
              })
-        ->orderBy('publish_on','DESC')
-        ->paginate(12, ['*'], 'page', $pageNumber);
+        ->orderBy('publish_on','DESC');
+        // dd($news->toSql());
+        $news=$news->paginate(12, ['*'], 'page', $pageNumber);
 
-        // dd($news);
         $totalPage=$news->lastPage();
 
         
@@ -173,6 +270,7 @@ class NewsController extends Controller
             'news',
             'pageNumber',
             'keyword','totalPage'));
+
     }
 
     public function single($cat,$slug, Request $request)
@@ -220,11 +318,13 @@ class NewsController extends Controller
         $news= News::with(['newsSubSubTypes','newsSubTypes','newsTypes'])
         ->where('slug',$slug)
         ->first();
+        
         if(isset($news) && !empty($news) && $news->count() > 0)
         {
+            $this->updateViews($news->news_id,$request->ip);
 
-
-            return view('pages.news.single',compact('news','pageNumber'));
+            $otherNews=$this->get_detail($news->news_type,$news->news_id);
+            return view('pages.news.single',compact('news','pageNumber','otherNews'));
         }
         else{
             $news= NewsTypes::with(['newsLimit'])
@@ -287,11 +387,13 @@ class NewsController extends Controller
         $news= News::with(['newsSubSubTypes','newsSubTypes','newsTypes'])
         ->where('slug',$slug)
         ->first();
+        
         if(isset($news) && !empty($news) && $news->count() > 0)
         {
+            $this->updateViews($news->news_id,$request->ip);
 
-
-            return view('pages.news.single',compact('news','pageNumber'));
+            $otherNews=$this->get_detail($news->news_type,$news->news_id);
+            return view('pages.news.single',compact('news','pageNumber','otherNews'));
         }
         else{
             $news= NewsTypes::with(['newsLimit'])
@@ -324,12 +426,14 @@ class NewsController extends Controller
         $news= News::with(['newsSubSubTypes','newsSubTypes','newsTypes'])
         ->where('slug',$slug)
         ->first();
-
+        
+        
         if(isset($news) && !empty($news) && $news->count() > 0)
         {
+            $this->updateViews($news->news_id,$request->ip);
 
-
-            return view('pages.news.single',compact('news','pageNumber'));
+            $otherNews=$this->get_detail($news->news_type,$news->news_id);
+            return view('pages.news.single',compact('news','pageNumber','otherNews'));
         }
         else{
             $news= NewsTypes::with(['newsLimit'])

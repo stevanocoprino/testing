@@ -74,193 +74,136 @@ $i=2;
                         <div id="tabs-content">
                             <div id="tab1" class="content">
                                 <div class="row">
-                                    <div class="col-12">
-                                        <a href="#" class="d-block card__article card__article-with-border">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="card__article-content">
-                                                        <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                                        <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
+                                    <div class="row">
+                                        @foreach($otherNews['terbaruNews1'] as $tn)
+                                        @php
+                                        $url="";
+                                        @endphp
+                                        @if(isset($tn->newsTypes->slug) && !empty($tn->newsTypes->slug) && $tn->newsTypes->slug!="" )
+                                        @php
+                                        $url.="/".$tn->newsTypes->slug;
+                                        @endphp
+                                        @endif
+                                        @if(isset($tn->newsSubTypes->slug) && !empty($tn->newsSubTypes->slug) && $tn->newsSubTypes->slug!="" )
+                                        @php
+                                        $url.="/".$tn->newsSubTypes->slug;
+                                        @endphp
+                                        @endif
+                                        @if(isset($tn->newsSubSubTypes->slug) && !empty($tn->newsSubSubTypes->slug) && $tn->newsSubSubTypes->slug!="" )
+                                        @php
+                                        $url.="/".$tn->newsSubSubTypes->slug;
+                                        @endphp
+                                        @endif
+                                        @php
+                                        $url.="/".$tn->slug;
+                                        @endphp
+                                        <div class="col-12">
+                                            <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <div class="card__article-content">
+                                                            <h3 class="text-sb-20 c-black">{{ $tn->title??"" }}</h3>
+                                                            <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">{{ Helper::getDateToString($tn->publish_on??"now") }} by</label><span class="text-reg-12 c-l-blue">Sportify</span></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12">
-                                        <a href="#" class="d-block card__article card__article-with-border">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="card__article-content">
-                                                        <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                                        <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12">
-                                        <a href="#" class="d-block card__article card__article-with-border">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="card__article-content">
-                                                        <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                                        <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12">
-                                        <a href="#" class="d-block card__article card__article-with-border">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="card__article-content">
-                                                        <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                                        <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
+                                        @endforeach
+                                        
                                     </div>
                                 </div>
                             </div>
                             <div id="tab2" class="content">
                                 <div class="row">
-                                    <div class="col-12">
-                                        <a href="#" class="d-block card__article card__article-with-border">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="card__article-content">
-                                                        <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                                        <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
+                                    <div class="row">
+                                        @foreach($otherNews['terbaruNews2'] as $tn)
+                                        @php
+                                        $url="";
+                                        @endphp
+                                        @if(isset($tn->newsTypes->slug) && !empty($tn->newsTypes->slug) && $tn->newsTypes->slug!="" )
+                                        @php
+                                        $url.="/".$tn->newsTypes->slug;
+                                        @endphp
+                                        @endif
+                                        @if(isset($tn->newsSubTypes->slug) && !empty($tn->newsSubTypes->slug) && $tn->newsSubTypes->slug!="" )
+                                        @php
+                                        $url.="/".$tn->newsSubTypes->slug;
+                                        @endphp
+                                        @endif
+                                        @if(isset($tn->newsSubSubTypes->slug) && !empty($tn->newsSubSubTypes->slug) && $tn->newsSubSubTypes->slug!="" )
+                                        @php
+                                        $url.="/".$tn->newsSubSubTypes->slug;
+                                        @endphp
+                                        @endif
+                                        @php
+                                        $url.="/".$tn->slug;
+                                        @endphp
+                                        <div class="col-12">
+                                            <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <div class="card__article-content">
+                                                            <h3 class="text-sb-20 c-black">{{ $tn->title??"" }}</h3>
+                                                            <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">{{ Helper::getDateToString($tn->publish_on??"now") }} by</label><span class="text-reg-12 c-l-blue">Sportify</span></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12">
-                                        <a href="#" class="d-block card__article card__article-with-border">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="card__article-content">
-                                                        <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                                        <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12">
-                                        <a href="#" class="d-block card__article card__article-with-border">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="card__article-content">
-                                                        <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                                        <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12">
-                                        <a href="#" class="d-block card__article card__article-with-border">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="card__article-content">
-                                                        <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                                        <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
+                                        @endforeach
+                                        
                                     </div>
                                 </div>
                             </div>
                             <div id="tab3" class="content">
                                 <div class="row">
-                                    <div class="col-12">
-                                        <a href="#" class="d-block card__article card__article-with-border">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="card__article-content">
-                                                        <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                                        <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
+                                    <div class="row">
+                                        @foreach($otherNews['terbaruNews3'] as $tn)
+                                        @php
+                                        $url="";
+                                        @endphp
+                                        @if(isset($tn->newsTypes->slug) && !empty($tn->newsTypes->slug) && $tn->newsTypes->slug!="" )
+                                        @php
+                                        $url.="/".$tn->newsTypes->slug;
+                                        @endphp
+                                        @endif
+                                        @if(isset($tn->newsSubTypes->slug) && !empty($tn->newsSubTypes->slug) && $tn->newsSubTypes->slug!="" )
+                                        @php
+                                        $url.="/".$tn->newsSubTypes->slug;
+                                        @endphp
+                                        @endif
+                                        @if(isset($tn->newsSubSubTypes->slug) && !empty($tn->newsSubSubTypes->slug) && $tn->newsSubSubTypes->slug!="" )
+                                        @php
+                                        $url.="/".$tn->newsSubSubTypes->slug;
+                                        @endphp
+                                        @endif
+                                        @php
+                                        $url.="/".$tn->slug;
+                                        @endphp
+                                        <div class="col-12">
+                                            <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <div class="card__article-content">
+                                                            <h3 class="text-sb-20 c-black">{{ $tn->title??"" }}</h3>
+                                                            <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">{{ Helper::getDateToString($tn->publish_on??"now") }} by</label><span class="text-reg-12 c-l-blue">Sportify</span></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12">
-                                        <a href="#" class="d-block card__article card__article-with-border">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="card__article-content">
-                                                        <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                                        <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12">
-                                        <a href="#" class="d-block card__article card__article-with-border">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="card__article-content">
-                                                        <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                                        <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12">
-                                        <a href="#" class="d-block card__article card__article-with-border">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <div class="card__article-content">
-                                                        <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                                        <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
+                                        @endforeach
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -283,102 +226,48 @@ $i=2;
                         </div>
                     </div>
                     <div class="row">
+                        @foreach($otherNews['terbaruNews3'] as $tn)
+                                        @php
+                                        $url="";
+                                        @endphp
+                                        @if(isset($tn->newsTypes->slug) && !empty($tn->newsTypes->slug) && $tn->newsTypes->slug!="" )
+                                        @php
+                                        $url.="/".$tn->newsTypes->slug;
+                                        @endphp
+                                        @endif
+                                        @if(isset($tn->newsSubTypes->slug) && !empty($tn->newsSubTypes->slug) && $tn->newsSubTypes->slug!="" )
+                                        @php
+                                        $url.="/".$tn->newsSubTypes->slug;
+                                        @endphp
+                                        @endif
+                                        @if(isset($tn->newsSubSubTypes->slug) && !empty($tn->newsSubSubTypes->slug) && $tn->newsSubSubTypes->slug!="" )
+                                        @php
+                                        $url.="/".$tn->newsSubSubTypes->slug;
+                                        @endphp
+                                        @endif
+                                        @php
+                                        $url.="/".$tn->slug;
+                                        @endphp
                         <div class="col-12">
-                            <a href="#" class="d-block card__article card__article-with-border">
+                            <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
-                                            <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                            <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                            <p class="mb-3 c-black">Kami akan mengawali dari Bali sebagai seri pertama IBL 2023,” kata Direktur Utama IBL.</p>
+                                            <div class="position-relative mb-2">
+                                                <label class="text-reg-12 c-black me-1">{{ Helper::getDateToString($tn->publish_on??"now") }} by</label><span class="text-reg-12 c-l-blue">Sportify</span></div>
+                                            <h3 class="text-sb-20 c-black">{{ $tn->title??"" }}</h3>
+                                            <p class="mb-3 c-black">{!! $tn->short_desc??"" !!}</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-12">
-                            <a href="#" class="d-block card__article card__article-with-border">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card__article-content">
-                                            <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                            <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                            <p class="mb-3 c-black">Kami akan mengawali dari Bali sebagai seri pertama IBL 2023,” kata Direktur Utama IBL.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12">
-                            <a href="#" class="d-block card__article card__article-with-border">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card__article-content">
-                                            <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                            <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                            <p class="mb-3 c-black">Kami akan mengawali dari Bali sebagai seri pertama IBL 2023,” kata Direktur Utama IBL.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12">
-                            <a href="#" class="d-block card__article card__article-with-border">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card__article-content">
-                                            <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                            <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                            <p class="mb-3 c-black">Kami akan mengawali dari Bali sebagai seri pertama IBL 2023,” kata Direktur Utama IBL.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12">
-                            <a href="#" class="d-block card__article card__article-with-border">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card__article-content">
-                                            <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                            <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                            <p class="mb-3 c-black">Kami akan mengawali dari Bali sebagai seri pertama IBL 2023,” kata Direktur Utama IBL.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12">
-                            <a href="#" class="d-block card__article card__article-with-border">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('assets/images/dummy-banner.jpg') }}');"></div>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card__article-content">
-                                            <div class="position-relative mb-2"><label class="text-reg-12 c-black me-1">27 Minutes Ago by</label><span class="text-reg-12 c-l-blue">Gustav</span></div>
-                                            <h3 class="text-sb-20 c-black">Kroasia Rebut Posisi Ketiga di Piala Dunia 2022 usai Bungkam Maroko</h3>
-                                            <p class="mb-3 c-black">Kami akan mengawali dari Bali sebagai seri pertama IBL 2023,” kata Direktur Utama IBL.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+
+                        @endforeach
+                        
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-4">
@@ -392,11 +281,16 @@ $i=2;
                     <div class="row">
                         <div class="col">
                             <ul class="list-with-border">
-                                <li><a href="#" class="text-sb-16 c-black"><span class="text-sb-26 c-red">#1</span> Piala Dunia</a></li>
-                                <li><a href="#" class="text-sb-16 c-black"><span class="text-sb-26 c-red">#2</span> Piala Dunia</a></li>
-                                <li><a href="#" class="text-sb-16 c-black"><span class="text-sb-26 c-red">#3</span> Piala Dunia</a></li>
-                                <li><a href="#" class="text-sb-16 c-black"><span class="text-sb-26 c-red">#4</span> Piala Dunia</a></li>
-                                <li><a href="#" class="text-sb-16 c-black"><span class="text-sb-26 c-red">#5</span> Piala Dunia</a></li>
+                                @php
+                                $i=1;
+                                @endphp
+                               @foreach($otherNews['trendingTags'] as $tt)
+                               <li><a href="{{ URL::to('/search?key='.urlencode($tt->tags)) }}" class="text-sb-16 c-black"><span class="text-sb-26 c-red">#{{ $i }}</span> {{ ucwords($tt->tags) }}</a></li>
+                               @php
+                                $i++;
+                                @endphp
+                               @endforeach
+                               
                             </ul>
                         </div>
                     </div>
@@ -405,7 +299,7 @@ $i=2;
         </div>
     </section>
 
-    <section class="section">
+    {{-- <section class="section">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -491,7 +385,7 @@ $i=2;
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 @endsection
 @push('script')

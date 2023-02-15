@@ -1,8 +1,10 @@
+{{-- {{ dd(Helper::header_menu()) }} --}}
 @if(Route::getCurrentRoute()->uri() == '/')
 <header id="header" class="header top-trans {{ $home??"" }}">   
 @else
 <header id="header" class="header">
 @endif
+
     <div class="header__top">
         <div class="container">
             <div class="row">
@@ -39,11 +41,13 @@
                             <img src="{{ asset('assets/images/search.svg') }}" class="searchToggle" alt="">
                             <img src="{{ asset('assets/images/close-white.svg') }}" class="closeToggle" style="display: none; width: 12px;" alt="">
                         </a>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
     <div class="header__bottom">
         <div class="container">
             <div class="row">
@@ -55,7 +59,8 @@
                         @php
                             $i=1;
                         @endphp
-                            @foreach(Helper::header_menu() as $nt)
+                       
+                            @foreach(Helper::header_menu() as $nt )
                                 @if($i==4)
                                 <li>
                                     <a href="javascript:;">Multi Sport</a>
@@ -78,6 +83,25 @@
                                                     <a href="{{ URL::to('/'.$nt['slug'].'/'.$nst['slug']) }}">
                                                        {{ $nst['sub_types']??"" }}
                                                     </a>
+                                                    
+                                                    @if(!empty($nst['news_sub_sub_types']))
+                                                    @php
+                                                    $newsSubSubTypesnya=json_decode(json_encode($nst['news_sub_sub_types']),TRUE);
+                                                    // dd($newsSubSubTypesnya);
+                                                    $key_values = array_column($newsSubSubTypesnya, 'sort'); 
+                                                    array_multisort($key_values, SORT_ASC, $newsSubSubTypesnya);
+                                                    @endphp
+                                                   
+                                                    <ul>
+                                                    @foreach($newsSubSubTypesnya as $nsst)
+                                                     <li>
+                                                         <a href="{{ URL::to('/'.$nt['slug'].'/'.$nst['slug'].'/'.$nsst['slug']) }}">
+                                                            {{ $nsst['sub_sub_types']??"" }}
+                                                         </a>
+                                                     </li>
+                                                    @endforeach
+                                                    </ul>
+                                                    @endif
                                                 </li>
                                             @endforeach
                                             </ul>

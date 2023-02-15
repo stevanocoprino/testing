@@ -34,6 +34,11 @@ class NewsSubSubTypes extends Model
         return $this->hasMany(News::class,'news_sub_sub_types','id_news_sub_sub_types');
     }
 
+    public function newsSubTypes()
+    {
+        return $this->belongsTo(NewsSubTypes::class,'id_news_sub_types','id_news_sub_types')->orderBy("sort","asc");
+    }
+
     public function newsLimit()
     {
         return $this->hasMany(News::class,'news_type','news_type_id')
