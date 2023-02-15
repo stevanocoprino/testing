@@ -11511,6 +11511,7 @@ textarea.form-control-lg {
   background: white;
   left: 0;
   right: 0;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
 }
 @media screen and (max-width: 767px) {
   .navbars-sub {
