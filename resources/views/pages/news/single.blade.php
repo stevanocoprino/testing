@@ -52,17 +52,16 @@ $i=2;
                         </div>
                     </div>
                     <center style="margin-bottom:20px; margin-top: 10px;"><small class='w100' style="text-align:center">{{ $news->pic_title??"" }}</small></center>
-                    <h2>{{ $news->title??"" }}</h2>
+                    <h2 class="mb-3">{{ $news->title??"" }}</h2>
                     <div class="article">
 
                        
                         {!! $news->description??"" !!}
                         
                     </div>
-                    <br />
-                    <br />
-                    <br />
-                    <ul class="paging"></ul>
+                    <ul class="paging mb-5 mt-3"></ul>
+
+                    <div class="sharethis-inline-share-buttons"></div>
                 </div>
                 <div class="col-sm-12 col-lg-4">
                     <div id="tabs">
