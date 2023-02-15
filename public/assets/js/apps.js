@@ -3315,35 +3315,6 @@ window.addEventListener('scroll', function () {
   }
   lastScrollTop = scrollTop;
 });
-var didScroll;
-var currentUrl = window.location.href;
-$(function () {
-  $(window).scroll(function (event) {
-    didScroll = true;
-  });
-  setInterval(function () {
-    if (didScroll) {
-      hasScrolled();
-      didScroll = false;
-    }
-  }, 250);
-  var currentSrollLocation = 0;
-  function hasScrolled() {
-    var bodyHeight = $('body').height();
-    var st = $(this).scrollTop();
-    if (st >= 15) {
-      $('.header').removeClass('top-trans');
-      $('.logo-white, .burger-white').hide();
-      $('.logo-black, .burger-black').show();
-    } else {
-      $('.header').addClass('top-trans');
-      $('.logo-white, .burger-white').show();
-      $('.logo-black, .burger-black').hide();
-    }
-    currentSrollLocation = st;
-    lastScrollTop = st;
-  }
-});
 $(".navbars > li").hover(function (e) {
   if ($(window).width() > 943) {
     $(this).children(".navbars-sub").stop(true, false).fadeToggle(150);

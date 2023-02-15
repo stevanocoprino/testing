@@ -68,7 +68,7 @@
                             <img src="{{ asset('assets/images/sportify-black.svg') }}" alt="">
                             <h4>Subscribe to our newsletter</h4>
                             <form class="row g-3">
-                                <div class="col-auto">
+                                <div class="col-auto mb-2">
                                     <input type="text" class="form-control" id="emailAddress" placeholder="Your email address...">
                                 </div>
                                 <div class="col-auto">

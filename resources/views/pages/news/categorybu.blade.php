@@ -1,7 +1,7 @@
 @extends('layouts.apps')
 @section('content')
 
-    <section class="section">
+    <section class="section section-top">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-lg-8">

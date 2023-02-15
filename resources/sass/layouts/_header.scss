@@ -6,6 +6,7 @@
     background: white;
     transition: 0.5s;
     z-index: 9;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
 
     &.top-trans {
         background: rgba(0, 0, 0, 0.2);

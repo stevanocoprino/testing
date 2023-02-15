@@ -1,4 +1,8 @@
-<header id="header" class="header top-trans {{ $home??"" }}">
+@if(Route::getCurrentRoute()->uri() == '/')
+<header id="header" class="header top-trans {{ $home??"" }}">   
+@else
+<header id="header" class="header">
+@endif
     <div class="header__top">
         <div class="container">
             <div class="row">
@@ -8,14 +12,22 @@
                         <p>{{ date("l, d M Y") }}</p>
                     </a>
                     <a href="javascript:;" id="menuToggle">
-                        <img src="{{ asset('assets/images/burger-white.svg') }}" class="burger-white" alt="">
-                        <img src="{{ asset('assets/images/burger-black.svg') }}" class="burger-black" style="display: none;" alt="">
+                        @if(Route::getCurrentRoute()->uri() == '/')
+                            <img src="{{ asset('assets/images/burger-white.svg') }}" class="burger-white" alt="">
+                            <img src="{{ asset('assets/images/burger-black.svg') }}" class="burger-black" style="display: none;" alt="">
+                        @else
+                            <img src="{{ asset('assets/images/burger-black.svg') }}" class="burger-black" alt="">
+                        @endif
                     </a>
                 </div>
                 <div class="col-6 text-center">
                     <a href="{{ URL::to('/') }}">
-                        <img src="{{ asset('assets/images/sportify-white.svg') }}" class="logo logo-white" alt="">
-                        <img src="{{ asset('assets/images/sportify-black.svg') }}" class="logo logo-black" style="display: none;" alt="">
+                        @if(Route::getCurrentRoute()->uri() == '/')
+                            <img src="{{ asset('assets/images/sportify-white.svg') }}" class="logo logo-white" alt="">
+                            <img src="{{ asset('assets/images/sportify-black.svg') }}" class="logo logo-black" style="display: none;" alt="">
+                        @else
+                            <img src="{{ asset('assets/images/sportify-black.svg') }}" class="logo logo-black" alt="">
+                        @endif
                     </a>
                 </div>
                 <div class="col-3">

@@ -3,7 +3,7 @@
 
     @foreach($news as $nw)
     @if($nw->newsLimit->count()>0)
-    <section class="section">
+    <section class="section section-top">
         <div class="container">
             <div class="row">
                 <div class="col">

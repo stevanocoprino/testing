@@ -4,7 +4,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        @stack('header_script')
         
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/images/favicon/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicon/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('assets/images/favicon/site.webmanifest') }}">
+        <link rel="mask-icon" href="{{ asset('assets/images/favicon/safari-pinned-tab.svg') }}">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +33,6 @@
         <meta http-equiv="Copyright" content="Sportify.id" />
         <meta http-equiv="refresh">
         <meta name="google-site-verification" content="_qme7sDIhow-ro08oy9rS4OchjgX25HEkZ5dkAGUUR0" />
-@stack('header_script')
 
         <script type="application/ld+json">
             {

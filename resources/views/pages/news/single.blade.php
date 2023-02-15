@@ -6,7 +6,7 @@
 $url="";
 $i=2;
 @endphp
-    <section class="section">
+    <section class="section section-top">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-lg-8">
@@ -51,7 +51,7 @@ $i=2;
                             
                         </div>
                     </div>
-                    <center><small class='w100' style="text-align:center">{{ $news->pic_title??"" }}</small></center>
+                    <center style="margin-bottom:20px; margin-top: 10px;"><small class='w100' style="text-align:center">{{ $news->pic_title??"" }}</small></center>
                     <h2>{{ $news->title??"" }}</h2>
                     <div class="article">
 
@@ -62,7 +62,7 @@ $i=2;
                     <br />
                     <br />
                     <br />
-                    <p class="paging"></p>
+                    <ul class="paging"></ul>
                 </div>
                 <div class="col-sm-12 col-lg-4">
                     <div id="tabs">
@@ -521,10 +521,10 @@ $i=2;
     {
         if(x==now)
         {
-            $(".paging").append("<a href='#' class='btn btn-primary'>"+x+"</a>");
+            $(".paging").append("<li class='current'><a href='#'>"+x+"</a></li>");
         }
         else{
-            $(".paging").append("<a href='{{ URL::to('/'.$news->newsTypes->slug.'/'.$news->slug.'?page=') }}"+x+"' class='btn btn-warning'>"+x+"</a>");
+            $(".paging").append("<li><a href='{{ URL::to('/'.$news->newsTypes->slug.'/'.$news->slug.'?page=') }}"+x+"' >"+x+"</a></li>");
 
         }
     }

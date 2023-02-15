@@ -11076,6 +11076,27 @@ textarea.form-control-lg {
   color: #F51C1C;
 }
 
+.pagination, .paging {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+.pagination li, .paging li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 8px;
+}
+.pagination li.current, .paging li.current {
+  background: black;
+  border-radius: 4px;
+}
+.pagination li.current a, .paging li.current a {
+  color: white;
+}
+.pagination li a, .paging li a {
+  color: black;
+}
+
 .list-with-border {
   padding: 0;
   margin: 0;
@@ -11348,6 +11369,7 @@ textarea.form-control-lg {
   background: white;
   transition: 0.5s;
   z-index: 9;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
 }
 .header.top-trans {
   background: rgba(0, 0, 0, 0.2);
@@ -11507,6 +11529,14 @@ textarea.form-control-lg {
 
 .section {
   padding: 50px 0;
+}
+.section-top {
+  margin-top: 140px;
+}
+@media screen and (max-width: 767px) {
+  .section-top {
+    margin-top: 60px;
+  }
 }
 
 body {
