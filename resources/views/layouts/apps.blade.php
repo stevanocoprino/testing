@@ -120,5 +120,13 @@
         
         @stack('script')
 
+        <style>
+          .area-title {
+            background: #F2F2F2;
+            padding: 40px 0;
+            margin-bottom: 50px;
+          }
+        </style>
+
     </body>
 </html>

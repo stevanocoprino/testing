@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\StaticController;
 
 
 /*
@@ -22,7 +23,9 @@ Route::get('/', [HomepageController::class, 'index']);
 // News
 Route::get('/search', [NewsController::class, 'search']);
 Route::get('/subscribe', [HomepageController::class, 'subscribe']);
+Route::get('/privacy-policy', [StaticController::class, 'privacypolicy']);
 Route::get('/{category}', [NewsController::class, 'archive']);
 Route::get('/{category}/{slug}', [NewsController::class, 'single']);
 Route::get('/{category}/{subcategory}/{slug}', [NewsController::class, 'subsingle']);
 Route::get('/{category}/{subcategory}/{subsubcategory}/{slug}', [NewsController::class, 'subsubsingle']);
+

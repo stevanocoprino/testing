@@ -3,54 +3,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-lg-8">
-                    {{-- <div class="footer__item">
-                        <h5>Sepak Bola</h5>
-                        <ul>
-                            <li><a href="#">Champions</a></li>
-                            <li><a href="#">Inggris</a></li>
-                            <li><a href="#">Italia</a></li>
-                            <li><a href="#">Spanyol</a></li>
-                            <li><a href="#">Indonesia</a></li>
-                            <li><a href="#">Bola Dunia</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__item">
-                        <h5>Bola Basket</h5>
-                        <ul>
-                            <li><a href="#">IBL</a></li>
-                            <li><a href="#">DBL</a></li>
-                            <li><a href="#">NBA</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__item">
-                        <h5>Seni Beladiri</h5>
-                        <ul>
-                            <li><a href="#">Taekwondo</a></li>
-                            <li><a href="#">Pencak Silat</a></li>
-                            <li><a href="#">Wushu</a></li>
-                            <li><a href="#">Senam Artistik</a></li>
-                            <li><a href="#">Karate</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__item">
-                        <h5>Multi Sports</h5>
-                        <ul class="two-columns">
-                            <li><a href="#">International</a></li>
-                            <li><a href="#">Bulutangkis</a></li>
-                            <li><a href="#">Dayung</a></li>
-                            <li><a href="#">Menembak</a></li>
-                            <li><a href="#">Panjat Tebing</a></li>
-                            <li><a href="#">Atletik</a></li>
-                            <li><a href="#">Sepeda</a></li>
-                            <li><a href="#">Bola Basket</a></li>
-                            <li><a href="#">Bola Voli</a></li>
-                            <li><a href="#">Panahan</a></li>
-                            <li><a href="#">Angkat Besi</a></li>
-                            <li><a href="#">Senam Artistik</a></li>
-                            <li><a href="#">Renang</a></li>
-                            <li><a href="#">Sepeda</a></li>
-                        </ul>
-                    </div> --}}
 
                     @php
                     $i=1;;
@@ -144,7 +96,7 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-6">
                     <ul>
-                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="{{ URL::to('/privacy-policy') }}">Kebijakan Privasi</a></li>
                         <li><a href="#">Kebijakan Cookies</a></li>
                         <li><a href="#">Term of Use</a></li>
                         <li><a href="#">Sitemap</a></li>
