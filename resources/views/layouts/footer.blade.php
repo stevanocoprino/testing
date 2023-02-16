@@ -55,7 +55,7 @@
 
                         </ul>
                     </div>
-                    <div class="footer__item">
+                    <div class="footer__item d-none">
                         <h5>Others</h5>
                         <ul>
                             <li><a href="#">Tentang Kami</a></li>
@@ -97,9 +97,9 @@
                 <div class="col-sm-12 col-lg-6">
                     <ul>
                         <li><a href="{{ URL::to('/privacy-policy') }}">Kebijakan Privasi</a></li>
-                        <li><a href="#">Kebijakan Cookies</a></li>
-                        <li><a href="#">Term of Use</a></li>
-                        <li><a href="#">Sitemap</a></li>
+                        {{-- <li><a href="#">Kebijakan Cookies</a></li>
+                        <li><a href="#">Term of Use</a></li> 
+                        <li><a href="#">Sitemap</a></li> --}}
                     </ul>
                 </div>
                 <div class="col-sm-12 col-lg-6">
