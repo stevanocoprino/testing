@@ -79,6 +79,8 @@
                                     <button type="submit" class="button-primary button-primary-br-10 mb-3">Submit</button>
                                 </div>
                             </form>
+                            <p class="text-success emailsuccess" style="display:none;font-size:14px">Email berhasil terdaftar</p>
+                            
                             <ul>
                                 <li><a href="#"><img src="{{ asset('assets/images/003-instagram.svg') }}" alt=""></a></li>
                                 <li><a href="#"><img src="{{ asset('assets/images/006-facebook.svg') }}" alt=""></a></li>
@@ -124,7 +126,8 @@ $("body").on("submit","#subscribe",function(e){
        
     success: function(data) {
         // $(".ajaxsubkategori").empty().html(data);
-        alert("email berhasil");
+        // alert("email berhasil");
+        $(".emailsuccess").show();
     }
 });
 })

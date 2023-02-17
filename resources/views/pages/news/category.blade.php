@@ -104,7 +104,7 @@
                         @elseif($totalPage<6)
                         @for($i=1;$i<=$totalPage;$i++)
                         @if($i==$pageNumber)
-                        <li class="current">{{ $i }}</li>
+                        <li class="current active">{{ $i }}</li>
                         @else
                         <li><a href="{{ URL::to('/'.$catslug.'?page='.$i) }}" >{{ $i }}</a></li>
                         @endif
@@ -112,7 +112,7 @@
                         @elseif($pageNumber<6)
                         @for($i=1;$i<=6;$i++)
                         @if($i==$pageNumber)
-                        <li class="current">{{ $i }}</li>
+                        <li class="current active">{{ $i }}</li>
                         @else
                         <li><a href="{{ URL::to('/'.$catslug.'?page='.$i) }}" >{{ $i }}</a></li>
                         @endif
@@ -122,7 +122,7 @@
                         <li><span>< Prev</span></li>
                         @for($i=($totalPage-6);$i<=$totalPage;$i++)
                         @if($i==$pageNumber)
-                        <li class="current">{{ $i }}</li>
+                        <li class="current active">{{ $i }}</li>
                         @else
                         <li><a href="{{ URL::to('/'.$catslug.'?page='.$i) }}" >{{ $i }}</a></li>
                         @endif
@@ -132,7 +132,7 @@
                         <li><span>< Prev</span></li>
                         @for($i=($pageNumber-3);$i<=($pageNumber+3);$i++)
                         @if($i==$pageNumber)
-                        <li class="current">{{ $i }}</li>
+                        <li class="current active">{{ $i }}</li>
                         @else
                         <li><a href="{{ URL::to('/'.$catslug.'?page='.$i) }}" >{{ $i }}</a></li>
                         @endif

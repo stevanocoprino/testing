@@ -37,46 +37,52 @@
                 </div>
                
                 @endforeach
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <ul class="pagination">
                 @if($totalPage==1)
                 &nbsp;
                 @elseif($totalPage<6)
                 @for($i=1;$i<=$totalPage;$i++)
                 @if($i==$pageNumber)
-                {{ $i }}
+                <li class="current active"> {{ $i }}</li>
                 @else
-                <a href="{{ URL::to('/search?key='.$keyword.'?page='.$i) }}" >{{ $i }}</a>
+                <li class="current"><a href="{{ URL::to('/search?key='.$keyword.'&page='.$i) }}" >{{ $i }}</a></li>
                 @endif
                 @endfor
                 @elseif($pageNumber<6)
                 @for($i=1;$i<=6;$i++)
                 @if($i==$pageNumber)
-                {{ $i }}
+                <li class="current active">{{ $i }}</li>
                 @else
-                <a href="{{ URL::to('/search?key='.$keyword.'?page='.$i) }}" >{{ $i }}</a>
+                <li class="current"> <a href="{{ URL::to('/search?key='.$keyword.'&page='.$i) }}" >{{ $i }}</a></li>
                 @endif
                 @endfor
-                <span>Next ></span>
+                <li class="current"><span>Next ></span></li>
                 @elseif(($totalPage-6)<$pageNumber)
-                <span>< Prev</span>
+                <li class="current"><span>< Prev</span></li>
                 @for($i=($totalPage-6);$i<=$totalPage;$i++)
                 @if($i==$pageNumber)
-                {{ $i }}
+                <li class="current active">{{ $i }}</li>
                 @else
-                <a href="{{ URL::to('/search?key='.$keyword.'?page='.$i) }}" >{{ $i }}</a>
+                <li class="current"><a href="{{ URL::to('/search?key='.$keyword.'&page='.$i) }}" >{{ $i }}</a></li>
                 @endif
                 @endfor
                 @else
-                <span>< Prev</span>
+                <li class="current"><span>< Prev</span></li>
                 @for($i=($pageNumber-3);$i<=($pageNumber+3);$i++)
                 @if($i==$pageNumber)
-                {{ $i }}
+                <li class="current active">{{ $i }}</li>
                 @else
-                <a href="{{ URL::to('/search?key='.$keyword.'?page='.$i) }}" >{{ $i }}</a>
+                <li class="current"><a href="{{ URL::to('/search?key='.$keyword.'&page='.$i) }}" >{{ $i }}</a></li>
                 @endif
                 @endfor
-                <span>Next ></span>
+                <li class="current"><span>Next ></span></li>
                 @endif
-                
+                      
+            </ul>
+        </div>
             </div>
         </div>
     </section>
