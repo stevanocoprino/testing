@@ -110,40 +110,40 @@
                 @elseif($totalPage<6)
                 @for($i=1;$i<=$totalPage;$i++)
                 @if($i==$pageNumber)
-                <li class="current active">{{ $i }}</li>
+                <li class=" current">{{ $i }}</li>
                 @else
-                <li class="current"><a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'?page='.$i) }}" >{{ $i }}</a></li>
+                <li class=""><a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'?page='.$i) }}" >{{ $i }}</a></li>
                 @endif
                 @endfor
                 @elseif($pageNumber<6)
                 @for($i=1;$i<=6;$i++)
                 @if($i==$pageNumber)
-                <li class="current active">{{ $i }}</li>
+                <li class=" current">{{ $i }}</li>
                 @else
-                <li class="current"><a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'?page='.$i) }}" >{{ $i }}</a></li>
+                <li class=""><a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'?page='.$i) }}" >{{ $i }}</a></li>
                 @endif
                 @endfor
-                <li class="current"><span>Next ></span></li>
+                <li class=""><span>Next ></span></li>
                 @elseif(($totalPage-6)<$pageNumber)
-                <li class="current"><span>< Prev</span></li>
+                <li class=""><span>< Prev</span></li>
                 @for($i=($totalPage-6);$i<=$totalPage;$i++)
                 @if($i==$pageNumber)
-                <li class="current active">{{ $i }}</li>
+                <li class=" current">{{ $i }}</li>
                 @else
-                <li class="current"><a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'?page='.$i) }}" >{{ $i }}</a></li>
+                <li class=""><a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'?page='.$i) }}" >{{ $i }}</a></li>
                 @endif
                 @endfor
                 
                 @else
-                <li class="current"><span>< Prev</span></li>
+                <li class=""><span>< Prev</span></li>
                 @for($i=($pageNumber-3);$i<=($pageNumber+3);$i++)
                 @if($i==$pageNumber)
-                <li class="current active">{{ $i }}</li>
+                <li class=" current">{{ $i }}</li>
                 @else
-                <li class="current"><a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'?page='.$i) }}" >{{ $i }}</a></li>
+                <li class=""><a href="{{ URL::to('/'.$catslug.'/'.$subcatslug.'?page='.$i) }}" >{{ $i }}</a></li>
                 @endif
                 @endfor
-                <li class="current"><span>Next ></span></li>
+                <li class=""><span>Next ></span></li>
                 @endif
             </ul>
         </div>
