@@ -1,0 +1,3 @@
+SELECT T0."DocEntry", T0."DocNum", T0."DocDate", T0."U_SOL_TIPE_TRANS", T1."FromWhsCod" "From Whs", T1."WhsCode" "To Whs", T0."U_M_EKSTNO", T1."ItemCode", T1."Dscription", T1."U_SOL_MODEL", T1."Quantity" 
+FROM OWTQ T0 INNER JOIN WTQ1 T1 ON T0."DocEntry"=T1."DocEntry" JOIN NNM1 T8 ON T8."Series"= T0."Series" LEFT JOIN OSRN T7 ON T1."U_SOL_SRNO_FG" = T7."DistNumber" 
+WHERE T0."U_SOL_TIPE_TRANS" IN ('TR_SPSTOCK', 'TR_SPASC', 'TR_SPPS', 'TR_SPC', 'TR_SPZ') AND T1."FromWhsCod" LIKE 'WB%' AND T1."SlpCode"='-1' AND (T0."U_M_FPOW" IS NULL OR T0."U_M_FPOW" ='N') AND T8."SeriesName" LIKE '%ITRCC' ORDER BY T0."DocEntry" ASC;       

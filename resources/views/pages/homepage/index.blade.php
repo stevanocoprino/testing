@@ -147,7 +147,7 @@
                                   
                         @if($i==1)
                         <div class="col-12">
-                            <a href="{{ URL::to($url) }}" class="d-block card__thumbnail card__thumbnail-large overlay-full position-relative mb-4" style="background-image: url('{{ asset('storage/images/'.$tn["pic"]) }}');">
+                            <a href="{{ URL::to($url) }}" class="d-block card__thumbnail card__thumbnail-large overlay-full position-relative mb-4" style="background-image: url('{{ ENV("IMAGE_URL").$tn["pic"] }}');">
                                 <div class="h-100">
                                     <span class="card__thumbnail-wrapper">
                                         <h3 class="text-sb-30 c-white">{{$tn->title??""}}</h3>
@@ -158,7 +158,7 @@
                         </div>
                         @else
                         <div class="col-sm-12 col-lg-6">
-                            <a href="{{ URL::to($url) }}" class="d-block card__thumbnail card__thumbnail-small overlay-full position-relative mb-4" style="background-image: url('{{ asset('storage/images/'.$tn["pic"]) }}');">
+                            <a href="{{ URL::to($url) }}" class="d-block card__thumbnail card__thumbnail-small overlay-full position-relative mb-4" style="background-image: url('{{ ENV("IMAGE_URL").$tn["pic"] }}');">
                                 <div class="h-100">
                                     <span class="card__thumbnail-wrapper">
                                         <h3 class="text-sb-20 c-white">{{$tn->title??""}}</h3>
@@ -212,7 +212,7 @@
                                         <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
                                             <div class="row">
                                                 <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ ENV("IMAGE_URL").$tn["pic"] }}');"></div>
                                                 </div>
                                                 <div class="col-8">
                                                     <div class="card__article-content">
@@ -255,7 +255,7 @@
                                         <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
                                             <div class="row">
                                                 <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ ENV("IMAGE_URL").$tn["pic"] }}');"></div>
                                                 </div>
                                                 <div class="col-8">
                                                     <div class="card__article-content">
@@ -298,7 +298,7 @@
                                         <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
                                             <div class="row">
                                                 <div class="col-4">
-                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                                                    <div class="card__article-thumbnail card__article-thumbnail-xsmall position-relative overlay-full mb-4" style="background-image:url('{{ ENV("IMAGE_URL").$tn["pic"] }}');"></div>
                                                 </div>
                                                 <div class="col-8">
                                                     <div class="card__article-content">
@@ -354,7 +354,7 @@
                 @endphp
                 <div class="col-12 col-md-4">
                     <a href="{{ URL::to($url) }}" class="card__article">
-                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ ENV("IMAGE_URL").$tn["pic"] }}');"></div>
                         <div class="card__article-content">
                             <h3 class="text-sb-20 c-black">{{ $tn->title??"" }}</h3>
                             <p class="mb-3 c-black">{!! strip_tags($tn->short_desc) !!}</p>
@@ -407,7 +407,7 @@
                 @endphp
                 <div class="col-12 col-md-4">
                     <a href="{{ URL::to($url) }}" class="card__article">
-                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ ENV("IMAGE_URL").$tn["pic"] }}');"></div>
                         <div class="card__article-content">
                             <h3 class="text-sb-20 c-black">{{ $tn->title??"" }}</h3>
                             <p class="mb-3 c-black">{!! strip_tags($tn->short_desc) !!}</p>
@@ -469,7 +469,7 @@
                             <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ ENV("IMAGE_URL").$tn["pic"] }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
@@ -485,7 +485,7 @@
                             <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ ENV("IMAGE_URL").$tn["pic"] }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
@@ -501,7 +501,7 @@
                             <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ ENV("IMAGE_URL").$tn["pic"] }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
@@ -517,7 +517,7 @@
                             <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ ENV("IMAGE_URL").$tn["pic"] }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
@@ -533,7 +533,7 @@
                             <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ ENV("IMAGE_URL").$tn["pic"] }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
@@ -549,7 +549,7 @@
                             <a href="{{ URL::to($url) }}" class="d-block card__article card__article-with-border">
                                 <div class="row">
                                     <div class="col-4">
-                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                                        <div class="card__article-thumbnail card__article-thumbnail-small position-relative overlay-full mb-4" style="background-image:url('{{ ENV("IMAGE_URL").$tn["pic"] }}');"></div>
                                     </div>
                                     <div class="col-8">
                                         <div class="card__article-content">
@@ -716,7 +716,7 @@
                 @endphp
                 <div class="col-12 col-md-4">
                     <a href="{{ URL::to($url) }}" class="card__article">
-                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ asset('storage/images/'.$tn["pic"]) }}');"></div>
+                        <div class="card__article-thumbnail position-relative overlay-full mb-4" style="background-image:url('{{ ENV("IMAGE_URL").$tn["pic"] }}');"></div>
                         <div class="card__article-content">
                             <h3 class="text-sb-20 c-black">{{ $tn->title??"" }}</h3>
                             <p class="mb-3 c-black">{!! strip_tags($tn->short_desc) !!}</p>
